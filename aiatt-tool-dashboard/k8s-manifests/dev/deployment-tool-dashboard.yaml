@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-ai-tool-dashboard
+  namespace: advtech
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: at-ai-tool-dashboard
+  template:
+    metadata:
+      labels:
+        app: at-ai-tool-dashboard
+    spec:
+      containers:
+      - name: at-ai-tool-dashboard
+        image: ghcr.io/acspubsedsg/at-ai-tool-dashboard:sha-bb76d51
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+        livenessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          httpGet:
+            path: /Dashboard/HealthMonitor
+            port: 8080
+        readinessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          httpGet:
+            path: /Dashboard/HealthMonitor
+            port: 8080
+        volumeMounts:
+        - mountPath: /appl/iapps/dashboard/
+          name: at-ai-tool-dashboard-config-volume
+      volumes:
+        - name: at-ai-tool-dashboard-config-volume
+          configMap:
+            name: at-ai-tool-dashboard-configmap
+      imagePullSecrets:
+        - name: ghcr-token-github-com
+        

@@ -1,0 +1,1 @@
+This Repo contains the kubernetes manifests and is used for deployment of advtech aiatt and tool-dashbaord apps using ArgoCD.
