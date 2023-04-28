@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: at-ai-arr-fe-ui-configmap
+  namespace: advtech
+data:
+  sso.properties: |
+    env=test
+    appid=AIARRSTAG
+    scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
+    protectedPaths=/review
+    cancelurl=https://javiastest.acs.org/review/home
+    continueLabel=Back to AIARR
+    default_max_age=30
+    redirecturl=https://javiastest.acs.org/review/home/redirect

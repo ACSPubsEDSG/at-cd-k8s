@@ -27,11 +27,11 @@ spec:
                 name: at-ai-att-fe-ui
                 port:
                   number: 8080
-          - path: /editors/*
+          - path: /review/*
             pathType: ImplementationSpecific
             backend:
               service:
-                name: at-ai-aer-fe-ui
+                name: at-ai-arr-fe-ui
                 port:
                   number: 8080
   defaultBackend:
