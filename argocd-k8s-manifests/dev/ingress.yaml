@@ -62,6 +62,13 @@ spec:
                 name: at-ai-arr-fe-api
                 port:
                   number: 8080
+          - path: /similarity-api/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-arr-fe-api
+                port:
+                  number: 8080
   defaultBackend:
     service:
       name: at-ai-tool-dashboard
