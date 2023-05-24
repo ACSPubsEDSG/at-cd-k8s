@@ -38,8 +38,3 @@ spec:
             name: at-ai-att-fe-ui-configmap
       imagePullSecrets:
         - name: ghcr-token-github-com
-      restartPolicy: Always
-      hostAliases:
-        - hostnames:
-          - "dev-lnx-149.acs.org"
-          ip: "172.23.40.254"

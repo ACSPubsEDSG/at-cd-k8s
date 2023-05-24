@@ -30,4 +30,9 @@ spec:
             cpu: 1500m 
             memory: 3072Mi
       imagePullSecrets:
-        - name: ghcr-token-github-com  
+        - name: ghcr-token-github-com
+      restartPolicy: Always
+      hostAliases:
+        - hostnames:
+          - "dev-lnx-149.acs.org"
+          ip: "172.23.40.254"  
