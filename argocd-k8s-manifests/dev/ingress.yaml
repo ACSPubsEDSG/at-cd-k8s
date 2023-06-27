@@ -27,7 +27,7 @@ spec:
                 name: at-ai-att-fe-ui
                 port:
                   number: 8080
-          - path: /review/*
+          - path: /reviewers/*
             pathType: ImplementationSpecific
             backend:
               service:
