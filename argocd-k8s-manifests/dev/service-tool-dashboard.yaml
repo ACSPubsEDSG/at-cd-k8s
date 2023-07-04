@@ -4,7 +4,7 @@ metadata:
   name: at-ai-tool-dashboard
   namespace: advtech
   annotations:
-    cloud.google.com/backend-config: '{"ports": {"8080":"at-ai-att-fe-backendconfig"}}'
+    cloud.google.com/backend-config: '{"ports": {"8080":"at-ai-att-dashboard-backendconfig"}}'
     cloud.google.com/neg: '{"ingress": true}'
   labels:
     app: at-ai-tool-dashboard
