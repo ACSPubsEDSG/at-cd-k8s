@@ -12,7 +12,7 @@ spec:
         spec:
           containers:
           - name: at-ai-att-fe-training-cnnprparjob
-            image: bhautik2101/acs:training
+            image: ghcr.io/acspubsedsg/ai-att-training-be:latest
             imagePullPolicy: IfNotPresent
             resources:
               requests:
