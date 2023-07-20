@@ -66,7 +66,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: at-ai-arr-fe-api
+                name: at-ai-aoe-fe-api
                 port:
                   number: 8080
           - path: /mstxfr/api/v2/*
