@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: at-ai-att-fe-training-cnnprparjob
+  namespace: advtech
+spec:
+  schedule: "0 04 * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: at-ai-att-fe-training-cnnprparjob
+            image: bhautik2101/acs:training
+            imagePullPolicy: IfNotPresent
+            resources:
+              requests:
+                cpu: 1000m 
+                memory: 2048Mi
+              limits:
+                cpu: 1500m 
+                memory: 3072Mi
+            command:
+            - /bin/sh
+            - -c
+            - conda run --name manuscript-transfer-cnn python prepare.py
+            volumeMounts:
+            - name: filestore 
+              mountPath: /NAS
+          volume:
+          - name: filestore
+            persistentVolumeClaim:
+              claimName: filestore-nfs-pvc
+              readOnly: false
+          restartPolicy: OnFailure
