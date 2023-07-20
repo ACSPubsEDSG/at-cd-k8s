@@ -1,17 +1,17 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-att-fe-training-trnsfrcnnjob
+  name: at-ai-att-fe-training-cnnprparjob
   namespace: advtech
 spec:
-  schedule: "50 10 * * *"
+  schedule: "0 04 * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
       template:
         spec:
           containers:
-          - name: at-ai-att-fe-training-trnsfrcnnjob
+          - name: at-ai-att-fe-training-cnnprparjob
             image: ghcr.io/acspubsedsg/ai-att-training-be:latest
             imagePullPolicy: IfNotPresent
             resources:
@@ -24,13 +24,13 @@ spec:
             command:
             - /bin/sh
             - -c
-            - conda run --name manuscript-transfer-cnn python journal_matrix_model_db.py
-                  volumeMounts:
+            - conda run --name manuscript-transfer-cnn python prepare.py
+            volumeMounts:
             - name: filestore 
               mountPath: /NAS
-          volume:
+          restartPolicy: OnFailure
+          volumes:
           - name: filestore
             persistentVolumeClaim:
               claimName: filestore-nfs-pvc
               readOnly: false
-          restartPolicy: OnFailure
