@@ -4,7 +4,7 @@ metadata:
   name: at-ai-att-fe-training-jrnlmtrxjob
   namespace: advtech
 spec:
-  schedule: "0 18 * * *"
+  schedule: "*/10 * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -28,6 +28,8 @@ spec:
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
+          imagePullSecrets:
+          - name: ghcr-token-github-com
           volumes:
           - name: filestore
             persistentVolumeClaim:
