@@ -76,6 +76,13 @@ spec:
                 name: at-ai-att-fe-api
                 port:
                   number: 8080
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-att-fe-inferencing
+                port:
+                  number: 5002
   defaultBackend:
     service:
       name: at-ai-tool-dashboard
