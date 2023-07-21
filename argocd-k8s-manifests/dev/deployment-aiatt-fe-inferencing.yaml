@@ -26,6 +26,10 @@ spec:
             limits:
               cpu: 1500m
               memory: 3072Mi
+          command:
+          - /bin/sh
+          - -c
+          - mv config/manuscript-transfer-cnn_dev.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python predict.py
           volumeMounts:
             - name: filestore
               mountPath: /NAS
