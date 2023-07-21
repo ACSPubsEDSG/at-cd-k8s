@@ -13,7 +13,7 @@ spec:
           containers:
           - name: at-ai-att-fe-training-cnnprparjob
             image: ghcr.io/acspubsedsg/ai-att-training-be:latest
-            imagePullPolicy: IfNotPresent
+            imagePullPolicy: Always
             resources:
               requests:
                 cpu: 1000m 

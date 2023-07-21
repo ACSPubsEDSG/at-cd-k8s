@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: at-ai-att-fe-inferencing
-          image: 'ghcr.io/acspubsedsg/at-ai-att-fe-inferencing:latest'
-          imagePullPolicy: IfNotPresent
+          image: ghcr.io/acspubsedsg/at-ai-att-fe-inferencing:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5002
           resources:

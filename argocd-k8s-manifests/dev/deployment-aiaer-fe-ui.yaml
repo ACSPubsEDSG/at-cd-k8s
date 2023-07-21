@@ -16,7 +16,7 @@ spec:
       containers:
       - name: at-ai-aer-fe-ui
         image: ghcr.io/acspubsedsg/at-ai-aer-fe-ui:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:

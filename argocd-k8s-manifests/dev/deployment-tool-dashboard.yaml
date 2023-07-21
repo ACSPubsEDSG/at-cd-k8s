@@ -16,7 +16,7 @@ spec:
       containers:
       - name: at-ai-tool-dashboard
         image: ghcr.io/acspubsedsg/at-ai-tool-dashboard:sha-bb76d51
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
