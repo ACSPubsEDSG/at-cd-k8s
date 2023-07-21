@@ -4,7 +4,7 @@ metadata:
   name: at-ai-att-fe-training-jrnlmtrxjob
   namespace: advtech
 spec:
-  schedule: "*/10 * * * *"
+  schedule: "0 18 * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
