@@ -26,7 +26,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - mv config/manuscript-transfer-cnn_dev.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python journal_matrix_model_db.py
+            - mkdir /NAS/AIMODELS/manuscript-transfer-cnn/model && mv config/manuscript-transfer-cnn_dev.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python journal_matrix_model_db.py
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
