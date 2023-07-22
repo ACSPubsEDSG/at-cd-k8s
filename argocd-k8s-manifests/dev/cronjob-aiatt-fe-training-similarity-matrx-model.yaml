@@ -26,7 +26,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mv config/manuscript-transfer-cnn_dev.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python jrn_top_n_2.py
+            - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mv config/manuscript-transfer-cnn_dev.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python -u jrn_top_n_2.py
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
