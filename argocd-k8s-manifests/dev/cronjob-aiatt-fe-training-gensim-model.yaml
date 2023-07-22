@@ -5,7 +5,7 @@ metadata:
   namespace: advtech
 spec:
   schedule: "30 04 * * *"
-  concurrencyPolicy: Forbid
+  concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
