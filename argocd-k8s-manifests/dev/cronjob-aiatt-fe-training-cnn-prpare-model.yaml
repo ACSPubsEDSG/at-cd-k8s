@@ -29,7 +29,7 @@ spec:
             - mv config/manuscript-transfer-cnn_dev.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python prepare.py
             volumeMounts:
             - name: filestore 
-              mountPath: /app/NAS
+              mountPath: /NAS
           restartPolicy: OnFailure
           imagePullSecrets:
           - name: ghcr-token-github-com
