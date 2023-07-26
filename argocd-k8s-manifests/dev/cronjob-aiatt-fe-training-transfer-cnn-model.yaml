@@ -37,4 +37,4 @@ spec:
             persistentVolumeClaim:
               claimName: filestore-nfs-pvc
               readOnly: false
-          restartPolicy: OnFailure
+          restartPolicy: Never

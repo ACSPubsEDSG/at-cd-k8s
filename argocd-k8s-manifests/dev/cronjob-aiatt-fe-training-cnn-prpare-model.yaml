@@ -30,7 +30,7 @@ spec:
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
-          restartPolicy: OnFailure
+          restartPolicy: Never
           imagePullSecrets:
           - name: ghcr-token-github-com
           volumes:
