@@ -9,7 +9,7 @@ data:
     appid=AIATT
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/transfer
-    cancelurl=http://localhost:8080/transfer/home
+    cancelurl=https://javiasdev.acs.org/transfer/home
     continueLabel=Back to AIATT
     default_max_age=30
-    redirecturl=http://localhost:8080/transfer/home/redirect
+    redirecturl=https://javiasdev.acs.org/transfer/home/redirect
