@@ -13,13 +13,6 @@ spec:
   rules:
     - http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-tool-dashboard
-                port:
-                  number: 8080
           - path: /Dashboard/*
             pathType: ImplementationSpecific
             backend:
@@ -28,13 +21,6 @@ spec:
                 port:
                   number: 8080
           - path: /transfer/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-att-fe-ui
-                port:
-                  number: 8080                  
-          - path: /transfer/home/*
             pathType: ImplementationSpecific
             backend:
               service:
@@ -90,7 +76,7 @@ spec:
                 name: at-ai-att-fe-api
                 port:
                   number: 8080
-          - path: /*
+          - path: /att-inferencing/*
             pathType: ImplementationSpecific
             backend:
               service:
