@@ -19,11 +19,11 @@ spec:
             resources:
               requests:
                 cpu: 4000m 
-                memory: 4096Mi
+                memory: 12288Mi
                 nvidia.com/gpu: 1
               limits:
                 cpu: 8000m 
-                memory: 8096Mi
+                memory: 16384Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
