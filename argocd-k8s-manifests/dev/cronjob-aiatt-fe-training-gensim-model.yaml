@@ -16,6 +16,9 @@ spec:
           - name: at-ai-att-fe-training-gnsmjob
             image: ghcr.io/acspubsedsg/ai-att-training-be:latest
             imagePullPolicy: Always
+            env:
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib64    
             resources:
               requests:
                 cpu: 4000m 
@@ -30,6 +33,8 @@ spec:
             - -c
             - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mv config/manuscript-transfer-cnn_dev.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python -u manuscript_transfer_model_db.py
             volumeMounts:
+            - mountPath: /usr/local/nvidia
+              name: nvidia
             - name: filestore 
               mountPath: /NAS
           tolerations:
@@ -39,6 +44,9 @@ spec:
           imagePullSecrets:
           - name: ghcr-token-github-com
           volumes:
+          - name: nvidia          
+            hostPath:
+              path: /home/kubernetes/bin/nvidia
           - name: filestore
             persistentVolumeClaim:
               claimName: filestore-nfs-pvc

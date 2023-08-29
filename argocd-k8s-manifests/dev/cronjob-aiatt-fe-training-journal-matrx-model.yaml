@@ -46,7 +46,7 @@ spec:
           volumes:
           - name: nvidia          
             hostPath:
-              path: /usr/lib/nvidia
+              path: /home/kubernetes/bin/nvidia
           - name: filestore
             persistentVolumeClaim:
               claimName: filestore-nfs-pvc
