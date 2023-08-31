@@ -1,9 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-workflows
-  namespace: argo
+  name: argo-workflows-new
+  namespace: argocd
   finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: https://kubernetes.default.svc
@@ -11,7 +12,7 @@ spec:
   project: default
   source:
     path: ./dev/argo-workflows/overlays/
-    repoURL: git@github.com:ACSPubsEDSG/AT-CD-K8S.git
+    repoURL: git@github.com:ACSPubsEDSG/AT-CD-K8S-ARGO-WORKFLOWS.git
     targetRevision: HEAD
   syncPolicy: 
     syncOptions:
