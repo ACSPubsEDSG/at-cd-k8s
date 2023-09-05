@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: at-ai-arr-fe-training-reviewer-top-n
+  namespace: advtech
+spec:
+  schedule: "0 10 * * *"
+  concurrencyPolicy: Replace
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: at-ai-arr-fe-training-reviewer-top-n
+            image: ghcr.io/acspubsedsg/at-ai-arr-fe-training:latest
+            imagePullPolicy: IfNotPresent
+            resources:
+              requests:
+                cpu: 1000m 
+                memory: 2048Mi
+              limits:
+                cpu: 1500m 
+                memory: 3072Mi
+            command:
+            - /bin/sh
+            - -c
+            - mv document-top-n_dev.ini document-top-n.ini && /reviewer-top-n.sh
+            volumeMounts:
+            - name: filestore 
+              mountPath: /NAS
+          volumes:
+          - name: filestore
+            persistentVolumeClaim:
+              claimName: filestore-nfs-pvc
+              readOnly: false
+          restartPolicy: OnFailure
