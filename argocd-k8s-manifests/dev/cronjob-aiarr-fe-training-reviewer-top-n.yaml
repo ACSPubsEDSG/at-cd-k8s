@@ -30,6 +30,8 @@ spec:
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
+            imagePullSecrets:
+            - name: ghcr-token-github-com
           volumes:
           - name: filestore
             persistentVolumeClaim:
