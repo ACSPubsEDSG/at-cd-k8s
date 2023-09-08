@@ -26,7 +26,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - mv document-top-n_dev.ini document-top-n.ini && /reviewer-top-n.sh
+            - mkdir -p /NAS/AIMODELS/manuscript-reviewer/vector && mkdir -p /NAS/AIMODELS/manuscript-reviewer/data && mv document-top-n_dev.ini document-top-n.ini && /reviewer-top-n.sh
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
