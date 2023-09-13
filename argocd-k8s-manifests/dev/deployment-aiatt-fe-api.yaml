@@ -22,6 +22,8 @@ spec:
         env:
         - name: spring.profiles.active
           value: dev
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
         resources:
           requests:
             cpu: 1000m 
