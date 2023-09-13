@@ -20,8 +20,8 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: JAVA_OPTIONS
-          value: -Dspring.profiles.active=dev
+        - name: spring.profiles.active
+          value: dev
         resources:
           requests:
             cpu: 1000m 
