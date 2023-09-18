@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: at-ai-att-fe-ui
-        image: ghcr.io/acspubsedsg/at-ai-att-fe-ui:sha-09918f3
+        image: ghcr.io/acspubsedsg/at-ai-att-fe-ui:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
