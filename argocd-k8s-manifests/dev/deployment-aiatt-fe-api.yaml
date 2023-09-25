@@ -4,7 +4,7 @@ metadata:
   name: at-ai-att-fe-api
   namespace: advtech
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: at-ai-att-fe-api
