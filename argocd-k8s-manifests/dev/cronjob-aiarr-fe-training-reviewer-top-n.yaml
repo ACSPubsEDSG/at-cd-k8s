@@ -32,6 +32,10 @@ spec:
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
+          tolerations:
+          - key: nvidia.com/gpu
+            operator: Exists
+            effect: NoSchedule          
           imagePullSecrets:
           - name: ghcr-token-github-com
           volumes:
