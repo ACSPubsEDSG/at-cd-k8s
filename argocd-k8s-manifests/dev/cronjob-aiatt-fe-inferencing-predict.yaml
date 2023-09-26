@@ -10,9 +10,9 @@ spec:
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 600
       template:
-        backoffLimit: 2
-        activeDeadlineSeconds: 600
         spec:
           serviceAccountName: restart-deployment
           restartPolicy: Never
