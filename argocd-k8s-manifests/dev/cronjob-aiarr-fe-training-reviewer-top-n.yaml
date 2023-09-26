@@ -15,7 +15,7 @@ spec:
           containers:
           - name: at-ai-arr-fe-training-reviewer-top-n
             image: ghcr.io/acspubsedsg/at-ai-arr-fe-training:latest
-            imagePullPolicy: IfNotPresent
+            imagePullPolicy: Always
             resources:
               requests:
                 cpu: 16000m 
