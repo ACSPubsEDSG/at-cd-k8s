@@ -21,13 +21,11 @@ spec:
               value: /usr/local/nvidia/lib64            
             resources:
               requests:
-                cpu: 4000m 
-                memory: 4096Mi
-                nvidia.com/gpu: 1
+                cpu: 1000m 
+                memory: 2048Mi
               limits:
-                cpu: 8000m 
-                memory: 8096Mi
-                nvidia.com/gpu: 1
+                cpu: 1500m 
+                memory: 3072Mi
             command:
             - /bin/sh
             - -c
