@@ -22,10 +22,10 @@ spec:
             resources:
               requests:
                 cpu: 12000m
-                memory: 12000Mi
+                memory: 3000Mi
               limits:
-                cpu: 12500m
-                memory: 12000Mi
+                cpu: 15500m
+                memory: 3000Mi
             command:
             - /bin/sh
             - -c
