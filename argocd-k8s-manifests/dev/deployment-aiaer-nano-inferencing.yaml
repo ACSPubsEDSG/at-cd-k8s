@@ -18,7 +18,8 @@ spec:
           image: ghcr.io/acspubsedsg/at-ai-aer-nano-fe-inferencing:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 5002
+            - containerPort: 5010
+            - containerPort: 5011
           resources:
             requests:
               cpu: 1000m
@@ -26,10 +27,7 @@ spec:
             limits:
               cpu: 1500m
               memory: 3072Mi
-          command:
-          - /bin/sh
-          - -c
-          - mv nano_dev_db.ini nano_db.ini && sh nano_predict_api.sh
+          command: ["supervisord", "-n", "-c", "/app/supervisord.conf"]
           volumeMounts:
             - name: filestore
               mountPath: /NAS
