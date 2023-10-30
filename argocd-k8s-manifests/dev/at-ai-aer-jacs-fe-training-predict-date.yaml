@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-aer-jacs-fe-training-prepare-data
+  name: at-ai-aer-jacs-fe-training-predict-date
   namespace: advtech
 spec:
   schedule: "0 6 * * 0"
@@ -13,7 +13,7 @@ spec:
       template:
         spec:
           containers:
-          - name: at-ai-aer-jacs-fe-training-prepare-data
+          - name: at-ai-aer-jacs-fe-training-predict-date
             image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:latest
             imagePullPolicy: Always
             resources:
