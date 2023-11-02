@@ -4,8 +4,8 @@ metadata:
   name: at-ai-arr-fe-training-reviewer-top-n
   namespace: advtech
 spec:
-  schedule: "0/2 * * * *"
-  concurrencyPolicy: Forbid
+  schedule: "*/60 05-17 * * *"
+  concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
@@ -16,6 +16,9 @@ spec:
           - name: at-ai-arr-fe-training-reviewer-top-n
             image: ghcr.io/acspubsedsg/at-ai-arr-fe-training:latest
             imagePullPolicy: Always
+            env:
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib64
             resources:
               requests:
                 cpu: 8000m 

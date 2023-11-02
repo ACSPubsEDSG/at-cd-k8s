@@ -48,48 +48,6 @@ spec:
                 name: at-ai-aoe-fe-ui
                 port:
                   number: 8080
-          # - path: /editor-api/*
-          #   pathType: ImplementationSpecific
-          #   backend:
-          #     service:
-          #       name: at-ai-aer-fe-api
-          #       port:
-          #         number: 8080
-          # - path: /reviewer-api/*
-          #   pathType: ImplementationSpecific
-          #   backend:
-          #     service:
-          #       name: at-ai-arr-fe-api
-          #       port:
-          #         number: 8080
-          # - path: /similarity-api/*
-          #   pathType: ImplementationSpecific
-          #   backend:
-          #     service:
-          #       name: at-ai-aoe-fe-api
-          #       port:
-          #         number: 8080
-          # - path: /mstxfr/api/v2/*
-          #   pathType: ImplementationSpecific 
-          #   backend:
-          #     service:
-          #       name: at-ai-att-fe-api
-          #       port:
-          #         number: 8080
-          # - path: /att-inferencing/*
-          #   pathType: ImplementationSpecific
-          #   backend:
-          #     service:
-          #       name: at-ai-att-fe-inferencing
-          #       port:
-          #         number: 5002
-          # - path: /arr-inferencing/*
-          #   pathType: ImplementationSpecific
-          #   backend:
-          #     service:
-          #       name: at-ai-arr-fe-inferencing
-          #       port:
-          #         number: 5002
   defaultBackend:
     service:
       name: at-ai-tool-dashboard

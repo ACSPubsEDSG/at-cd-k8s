@@ -21,11 +21,11 @@ spec:
               value: /usr/local/nvidia/lib64 
             resources:
               requests:
-                cpu: 12000m
-                memory: 3000Mi
+                cpu: 2000m 
+                memory: 2048Mi
               limits:
-                cpu: 15500m
-                memory: 3000Mi
+                cpu: 2500m 
+                memory: 3072Mi
             command:
             - /bin/sh
             - -c
@@ -33,11 +33,6 @@ spec:
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
-          tolerations:
-          - key: training
-            operator: Equal
-            value: cpu
-            effect: NoSchedule
           restartPolicy: OnFailure
           imagePullSecrets:
           - name: ghcr-token-github-com
