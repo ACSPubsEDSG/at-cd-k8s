@@ -8,10 +8,10 @@ data:
     env=dev
     appid=AIDashboardGCPDev
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
-    redirecturl=https://javiasdev.gcp.acs.org/Dashboard/redirect
+    redirectURL=https://javiasdev.gcp.acs.org/Dashboard/redirect
     protectedPaths=/Dashboard/
     publicFiles=HealthMonitor,page_not_found,error,style.css,all.min.css,bootstrap.min.css
     protectedFiles=
     continueLabel=Back to AIDA Dashboard
-    cancelurl=https://javiasdev.gcp.acs.org/Dashboard/
+    cancelURL=https://javiasdev.gcp.acs.org/Dashboard/
     returnURL=https://javiasdev.gcp.acs.org/Dashboard/
