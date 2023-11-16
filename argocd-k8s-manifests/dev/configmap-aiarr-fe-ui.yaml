@@ -9,7 +9,7 @@ data:
     appid=AIARR
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/review
-    cancelurl=https://javiasdev.acs.org/review/home
+    cancelurl=https://javiasdev.gcp.acs.org/review/home
     continueLabel=Back to AIARR
     default_max_age=30
-    redirecturl=https://javiasdev.acs.org/review/home/redirect
+    redirecturl=https://javiasdev.gcp.acs.org/review/home/redirect
