@@ -21,17 +21,17 @@ spec:
               value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 8000m 
+                cpu: 3200m 
                 memory: 8000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 8000m 
+                cpu: 3500m 
                 memory: 8000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/specter-dev/vector && mkdir -p /NAS/AIMODELS/specter-dev/data && mv aiamne-specter_dev.ini aiamne-specter.ini && conda run --name specter python aise-specter-incremental.py
+            - mkdir -p /NAS/AIMODELS/specter-dev/vector && mkdir -p /NAS/AIMODELS/specter-dev/data && mv aiamne-specter_dev.ini aiamne-specter.ini && python aise-specter-incremental.py
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
