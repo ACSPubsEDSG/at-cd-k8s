@@ -16,19 +16,22 @@ spec:
           - name: at-ai-aer-jacs-fe-training-predict-date
             image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:latest
             imagePullPolicy: Always
+            env:
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 8000m 
+                cpu: 3200m 
                 memory: 8000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 8000m 
+                cpu: 3500m 
                 memory: 8000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
             - -c
-            - mv aiaer_scibert_dev.ini aiaer_scibert.ini && sh aiaer_predict_date.sh
+            - mv aiaer_scibert_dev.ini aiaer_scibert.ini && conda run --name aiaer_scibert python aiaer_predict_date.py
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
