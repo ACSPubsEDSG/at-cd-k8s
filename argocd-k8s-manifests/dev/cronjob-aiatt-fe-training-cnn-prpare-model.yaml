@@ -33,6 +33,11 @@ spec:
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
+          tolerations:
+            - key: training
+              operator: Equal
+              value: cpu
+              effect: NoSchedule
           restartPolicy: OnFailure
           imagePullSecrets:
           - name: ghcr-token-github-com

@@ -6,7 +6,7 @@ metadata:
 data:
   sso.properties: |
     env=dev
-    appid=AIARR
+    appid=AIARRGCP
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/review
     cancelurl=https://javiasdev.gcp.acs.org/review/home
