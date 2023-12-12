@@ -8,10 +8,10 @@ data:
     env=test
     appid=AIDashboardSTAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
-    redirecturl=https://javiastest.acs.org/Dashboard/redirect
+    redirecturl=https://javiastest.gcp.acs.org/Dashboard/redirect
     protectedPaths=/Dashboard/
     publicFiles=HealthMonitor,page_not_found,error,style.css,all.min.css,bootstrap.min.css
     protectedFiles=
     continueLabel=Back to AIDA Dashboard
-    cancelurl=https://javiastest.acs.org/Dashboard/
-    returnURL=https://javiastest.acs.org/Dashboard/
+    cancelurl=https://javiastest.gcp.acs.org/Dashboard/
+    returnURL=https://javiastest.gcp.acs.org/Dashboard/
