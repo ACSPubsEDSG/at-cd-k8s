@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: at-ai-arr-fe-ui
+  name: at-ai-att-fe-inferencing
   namespace: advtech
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
   labels:
-    app: at-ai-arr-fe-ui
+    app: at-ai-att-fe-inferencing
 spec:
   type: ClusterIP
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 5002
+      targetPort: 5002
       protocol: TCP
       name: http
   selector:
-    app: at-ai-arr-fe-ui
+    app: at-ai-att-fe-inferencing
     

@@ -4,6 +4,7 @@ metadata:
   name: at-ai-att-fe-ui
   namespace: advtech
   annotations:
+    cloud.google.com/backend-config: '{"ports": {"8080":"at-ai-att-fe-backendconfig"}}'
     cloud.google.com/neg: '{"ingress": true}'
   labels:
     app: at-ai-att-fe-ui
@@ -16,4 +17,3 @@ spec:
       name: http
   selector:
     app: at-ai-att-fe-ui
-    
