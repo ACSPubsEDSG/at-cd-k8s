@@ -1,13 +1,13 @@
-#kind: PersistentVolumeClaim
-#apiVersion: v1
-#metadata:
-#  name: filestore-nfs-pvc
-#  namespace: advtech
-#spec:
-#  accessModes:
-#    - ReadWriteMany
-#  storageClassName: ""
-#  volumeName: filestore-nfs-pv
-#  resources:
-#    requests:
-#      storage: 1Ti
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: filestore-nfs-pvc
+  namespace: advtech
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  volumeName: filestore-nfs-pv
+  resources:
+    requests:
+      storage: 1Ti
