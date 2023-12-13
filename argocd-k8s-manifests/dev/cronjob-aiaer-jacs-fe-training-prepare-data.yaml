@@ -16,6 +16,9 @@ spec:
           - name: at-ai-aer-jacs-fe-training-prepare-data
             image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:latest
             imagePullPolicy: Always
+            env:
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib64
             resources:
               requests:
                 cpu: 3200m 
