@@ -6,7 +6,7 @@ metadata:
 data:
   sso.properties: |
     env=test
-    appid=AIATTSTAG
+    appid=AIATTGCPSTAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/transfer
     cancelurl=https://javiastest.gcp.acs.org/transfer/home

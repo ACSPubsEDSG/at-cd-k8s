@@ -6,7 +6,7 @@ metadata:
 data:
   sso.properties: |
     env=test
-    appid=AIDashboardSTAG
+    appid=AIDashboardGCPSTAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     redirecturl=https://javiastest.gcp.acs.org/Dashboard/redirect
     protectedPaths=/Dashboard/
