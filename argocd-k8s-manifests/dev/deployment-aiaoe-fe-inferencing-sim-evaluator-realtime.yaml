@@ -28,7 +28,7 @@ spec:
           command:  
           - /bin/sh
           - -c
-          - mv aiamne-specter_dev.ini aiamne-specter.ini && conda run --name specter python SimEvaluatorRealtime.py
+          - mv aiamne-specter_dev.ini aiamne-specter.ini && python SimEvaluatorRealtime.py
           volumeMounts:
             - name: filestore
               mountPath: /NAS

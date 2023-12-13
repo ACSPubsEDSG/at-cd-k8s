@@ -28,7 +28,7 @@ spec:
           command:  
           - /bin/sh
           - -c
-          - mv aiamne-specter_dev.ini aiamne-specter.ini && cd /app/specter && conda run --name specter python embed.py
+          - mv aiamne-specter_dev.ini aiamne-specter.ini && python init-embed.py
           volumeMounts:
             - name: filestore
               mountPath: /NAS
