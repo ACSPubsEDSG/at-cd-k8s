@@ -4,8 +4,8 @@ metadata:
   name: at-ai-att-fe-training-jrnlmtrxjob
   namespace: advtech
 spec:
-  schedule: "0 18 * * *"
-  concurrencyPolicy: Replace
+  schedule: "0/2 * * * *"
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
@@ -16,9 +16,6 @@ spec:
           - name: at-ai-att-fe-training-jrnlmtrxjob
             image: ghcr.io/acspubsedsg/ai-att-training-be:latest
             imagePullPolicy: Always
-            env:
-            - name: LD_LIBRARY_PATH
-              value: /usr/local/nvidia/lib64
             resources:
               requests:
                 cpu: 12000m
