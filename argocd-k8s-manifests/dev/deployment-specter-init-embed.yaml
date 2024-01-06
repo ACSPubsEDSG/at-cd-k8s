@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: at-ai-aoe-fe-inferencing-embed
+  name: at-ai-specter-init-embed
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: at-ai-aoe-fe-inferencing-embed
+      app: at-ai-specter-init-embed
   template:
     metadata:
       labels:
-        app: at-ai-aoe-fe-inferencing-embed
+        app: at-ai-specter-init-embed
     spec:
       containers:
-        - name: at-ai-aoe-fe-inferencing-embed
-          image: ghcr.io/acspubsedsg/at-ai-aoe-fe-inferencing:latest
+        - name: at-ai-specter-init-embed
+          image: ghcr.io/acspubsedsg/at-ai-specter-init-embed:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5005
@@ -28,7 +28,7 @@ spec:
           command:  
           - /bin/sh
           - -c
-          - mv aiamne-specter_dev.ini aiamne-specter.ini && cd /app/specter && conda run --name specter python embed.py
+          - python init-embed.py
           volumeMounts:
             - name: filestore
               mountPath: /NAS
