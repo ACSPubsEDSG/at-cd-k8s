@@ -28,7 +28,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mv config/manuscript-transfer-cnn_staging.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python -u journal_matrix_model_db.py
+            - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/aiatt-model/data && mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/data && mv config/manuscript-transfer-cnn_staging.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python -u journal_matrix_model_db.py
             volumeMounts:
             - mountPath: /usr/local/nvidia
               name: nvidia
