@@ -44,6 +44,10 @@ spec:
         volumeMounts:
         - mountPath: /appl/iapps/ssoProperties/
           name: at-ai-att-fe-ui-config-volume
+      hostAliases:
+        - hostnames:
+            - "ssotest.acs.org"
+          ip: "45.60.77.135"
       volumes:
         - name: at-ai-att-fe-ui-config-volume
           configMap:
