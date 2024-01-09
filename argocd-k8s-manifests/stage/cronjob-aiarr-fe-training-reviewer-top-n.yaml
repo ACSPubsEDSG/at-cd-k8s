@@ -31,7 +31,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/manuscript-reviewer/vector && mkdir -p /NAS/AIMODELS/manuscript-reviewer/data && mv document-top-n_dev.ini document-top-n.ini && sh reviewer_top_n.sh
+            - mkdir -p /NAS/AIMODELS/manuscript-reviewer/vector && mkdir -p /NAS/AIMODELS/manuscript-reviewer/data && mv document-top-n_staging.ini document-top-n.ini && sh reviewer_top_n.sh
             volumeMounts:
             - name: filestore 
               mountPath: /NAS

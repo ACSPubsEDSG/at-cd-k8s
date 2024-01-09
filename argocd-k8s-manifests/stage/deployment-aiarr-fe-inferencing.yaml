@@ -29,7 +29,7 @@ spec:
           command:
           - /bin/sh
           - -c
-          - mv document-top-n_dev.ini document-top-n.ini && conda run --name aiarr_specter python manuscript_reviewer_realtime.py
+          - mv document-top-n_staging.ini document-top-n.ini && conda run --name aiarr_specter python manuscript_reviewer_realtime.py
           volumeMounts:
             - name: filestore
               mountPath: /NAS
