@@ -5,7 +5,7 @@ metadata:
   namespace: advtech
 data:
   sso.properties: |
-    env=dev
+    env=test
     appid=AIASEGCPSTAG 
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/originality
