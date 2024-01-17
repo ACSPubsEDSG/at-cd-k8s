@@ -1,0 +1,54 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: at-ai-aoe-fe-training-aise-top-n
+  namespace: advtech
+spec:
+  schedule: "0 5 * * *"
+  concurrencyPolicy: Replace
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: at-ai-aoe-fe-training-aise-top-n
+            image: ghcr.io/acspubsedsg/at-ai-aoe-fe-training:latest
+            imagePullPolicy: Always
+            env:
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib64
+            resources:
+              requests:
+                cpu: 3200m 
+                memory: 8000Mi
+                nvidia.com/gpu: 1
+              limits:
+                cpu: 3500m 
+                memory: 8000Mi
+                nvidia.com/gpu: 1
+            command:
+            - /bin/sh
+            - -c
+            - mv aiamne-specter_stag.ini aiamne-specter.ini && python aise-top-n.py
+            volumeMounts:
+            - name: filestore 
+              mountPath: /NAS
+            - mountPath: /usr/local/nvidia
+              name: nvidia            
+          tolerations:
+          - key: nvidia.com/gpu
+            operator: Exists
+            effect: NoSchedule          
+          imagePullSecrets:
+          - name: ghcr-token-github-com
+          volumes:
+          - name: nvidia          
+            hostPath:
+              path: /home/kubernetes/bin/nvidia          
+          - name: filestore
+            persistentVolumeClaim:
+              claimName: filestore-nfs-pvc
+              readOnly: false
+          restartPolicy: OnFailure
