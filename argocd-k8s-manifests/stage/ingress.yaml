@@ -34,13 +34,13 @@ spec:
                 name: at-ai-arr-fe-ui
                 port:
                   number: 8080
-#          - path: /originality/*
-#            pathType: ImplementationSpecific
-#            backend:
-#              service:
-#                name: at-ai-aoe-fe-ui
-#                port:
-#                  number: 8080
+          - path: /originality/*
+            pathType: ImplementationSpecific
+            backend:
+             service:
+                name: at-ai-aoe-fe-ui
+                port:
+                  number: 8080
   defaultBackend:
     service:
       name: at-ai-tool-dashboard
