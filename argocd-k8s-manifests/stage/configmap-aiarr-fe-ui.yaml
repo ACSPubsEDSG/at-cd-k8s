@@ -13,3 +13,4 @@ data:
     continueLabel=Back to AIARR
     default_max_age=30
     redirecturl=https://javiastest.gcp.acs.org/reviewers/home/redirect
+    returnURL=https://javiastest.gcp.acs.org/reviewers/home

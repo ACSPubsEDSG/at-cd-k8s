@@ -13,3 +13,4 @@ data:
     continueLabel=Back to AIASE
     default_max_age=30
     redirecturl=https://javiastest.gcp.acs.org/originality/home/redirect
+    returnURL=https://javiastest.gcp.acs.org/originality/home
