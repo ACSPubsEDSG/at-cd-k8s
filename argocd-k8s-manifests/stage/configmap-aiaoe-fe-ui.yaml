@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
- name: at-ai-aoe-fe-ui-configmap
- namespace: advtech
+  name: at-ai-aoe-fe-ui-configmap
+  namespace: advtech
 data:
- sso.properties: |
-   env=test
-   appid=AIASEGCPSTAG
-   scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
-   protectedPaths=/originality
-   cancelurl=https://javiastest.gcp.acs.org/originality/home
-   continueLabel=Back to AIASE
-   default_max_age=30
-   redirecturl= https://javiastest.gcp.acs.org/originality/home/redirect
+  sso.properties: |
+    env=test
+    appid=AIASEGCPSTAG
+    scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
+    protectedPaths=/originality
+    cancelurl=https://javiastest.gcp.acs.org/originality/home
+    continueLabel=Back to AIASE
+    default_max_age=30
+    redirecturl=https://javiastest.gcp.acs.org/originality/home/redirect
+    returnURL=https://javiastest.gcp.acs.org/originality/home
