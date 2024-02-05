@@ -4,7 +4,7 @@ metadata:
   name: at-ai-aer-jacs-fe-training-prepare-data
   namespace: advtech
 spec:
-  schedule: "0 4 * * 6"
+  schedule: "*/5 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
@@ -28,15 +28,8 @@ spec:
                 cpu: 3500m 
                 memory: 8000Mi
                 nvidia.com/gpu: 1
-            command:
-            - /bin/sh
-            - -c
-            - mkdir -p /NAS/AIMODELS/aiaer-dev/tmp_data/
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/data/ 
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/tmp_bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/predict_output
-              && mv aiaer_scibert_stag.ini aiaer_scibert.ini && sh aiaer_bert_prepare_data.sh
+            command: [ "/bin/bash", "-c", "--" ]
+            args: [ "while true; do sleep 30; done;" ]
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
