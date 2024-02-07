@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-ai-aer-jacs-fe-inferencing-realtime-topn
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-ai-aer-jacs-fe-inferencing-realtime-topn
+  template:
+    metadata:
+      labels:
+        app: at-ai-aer-jacs-fe-inferencing-realtime-topn
+    spec:
+      containers:
+        - name: at-ai-aer-jacs-fe-inferencing-realtime-topn
+          image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-inferencing:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5007
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2048Mi
+            limits:
+              cpu: 1500m
+              memory: 3072Mi
+          command:  
+          - /bin/sh
+          - -c
+          - mv aiaer_scibert_stag.ini aiaer_scibert.ini && conda run --name aiaer_scibert python aiaer_realtime_topn.py
+          volumeMounts:
+            - name: filestore
+              mountPath: /NAS
+      imagePullSecrets:
+        - name: ghcr-token-github-com
+      volumes:
+        - name: filestore
+          persistentVolumeClaim:
+            claimName: filestore-nfs-pvc
+            readOnly: false

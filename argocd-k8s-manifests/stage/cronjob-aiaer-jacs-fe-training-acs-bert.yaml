@@ -1,11 +1,11 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-att-fe-training-trnsfrcnnjob
+  name: at-ai-aer-jacs-fe-training-acs-bert
   namespace: advtech
 spec:
-  schedule: "50 10 * * *"
-  concurrencyPolicy: Replace
+  schedule: "0 7 * * 6"
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
@@ -13,37 +13,40 @@ spec:
       template:
         spec:
           containers:
-          - name: at-ai-att-fe-training-trnsfrcnnjob
-            image: ghcr.io/acspubsedsg/ai-att-training-be:latest
+          - name: at-ai-aer-jacs-fe-training-acs-bert
+            image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:latest
             imagePullPolicy: Always
+            env:
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 12000m
-                memory: 14000Mi
+                cpu: 3200m 
+                memory: 8000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 15500m
-                memory: 15000Mi
+                cpu: 3500m 
+                memory: 8000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/aiatt-model/data && mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/data && mv config/manuscript-transfer-cnn_staging.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python -u cnn_gensim.py
+            - mv aiaer_scibert_stag.ini aiaer_scibert.ini && sh acs_bert.sh
             volumeMounts:
-            - mountPath: /usr/local/nvidia
-              name: nvidia
             - name: filestore 
               mountPath: /NAS
+            - mountPath: /usr/local/nvidia
+              name: nvidia            
           tolerations:
           - key: nvidia.com/gpu
             operator: Exists
-            effect: NoSchedule
+            effect: NoSchedule          
           imagePullSecrets:
           - name: ghcr-token-github-com
           volumes:
           - name: nvidia          
             hostPath:
-              path: /home/kubernetes/bin/nvidia
+              path: /home/kubernetes/bin/nvidia          
           - name: filestore
             persistentVolumeClaim:
               claimName: filestore-nfs-pvc

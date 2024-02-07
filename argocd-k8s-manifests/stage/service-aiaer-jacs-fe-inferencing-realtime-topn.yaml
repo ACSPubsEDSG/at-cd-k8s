@@ -1,20 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: at-ai-aer-fe-ui
+  name: at-ai-aer-jacs-fe-realtime-topn
   namespace: advtech
   annotations:
-    cloud.google.com/backend-config: '{"ports": {"8080":"at-ai-att-fe-backendconfig"}}'
     cloud.google.com/neg: '{"ingress": true}'
   labels:
-    app: at-ai-aer-fe-ui
+    app: at-ai-aer-jacs-fe-realtime-topn
 spec:
   type: ClusterIP
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 5007
+      targetPort: 5007
       protocol: TCP
       name: http
   selector:
-    app: at-ai-aer-fe-ui
+    app: at-ai-aer-jacs-fe-realtime-topn
     
