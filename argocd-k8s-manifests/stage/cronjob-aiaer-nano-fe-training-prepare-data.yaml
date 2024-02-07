@@ -32,7 +32,6 @@ spec:
               && mkdir -p /NAS/AIMODELS/aiaer-nn/tmp_data/ae 
               && mkdir -p /NAS/AIMODELS/aiaer-nn/tmp_data/ee
               && mkdir -p /NAS/AIMODELS/aiaer-nn/tmp_model/ae/bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/scibert_scivocab_uncased
               && mkdir -p /NAS/AIMODELS/aiaer-nn/model/ae/bert_output_model
               && mkdir -p /NAS/AIMODELS/aiaer-nn/model/ae/predict_output
               && mv nano_stag_db.ini nano_db.ini && sh nano_prepare_data.sh
