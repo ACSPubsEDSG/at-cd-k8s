@@ -15,5 +15,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: at-ai-aer-ami-fe-inferencing-
-    
+    app: at-ai-aer-ami-fe-inferencing-ee
