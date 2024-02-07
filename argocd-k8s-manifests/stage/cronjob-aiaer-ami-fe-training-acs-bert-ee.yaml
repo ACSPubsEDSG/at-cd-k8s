@@ -1,10 +1,10 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-aer-jacs-fe-training-prepare-data
+  name: at-ai-aer-ami-fe-training-acs-bert-ee
   namespace: advtech
 spec:
-  schedule: "0 4 * * 6"
+  schedule: "0 6 * * 0"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
@@ -13,8 +13,8 @@ spec:
       template:
         spec:
           containers:
-          - name: at-ai-aer-jacs-fe-training-prepare-data
-            image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:latest
+          - name: at-ai-aer-ami-fe-training-acs-bert-ee
+            image: ghcr.io/acspubsedsg/at-ai-aer-ami-fe-training:latest
             imagePullPolicy: Always
             env:
             - name: LD_LIBRARY_PATH
@@ -31,12 +31,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/aiaer-dev/tmp_data/
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/data/ 
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/tmp_bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-dev/predict_output
-              && mv aiaer_scibert_stag.ini aiaer_scibert.ini && sh aiaer_bert_prepare_data.sh
+            - mv aiaer_scibert_stag.ini aiaer_scibert.ini && sh acs_bert_ee_stag.sh
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
