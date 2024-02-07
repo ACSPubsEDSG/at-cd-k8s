@@ -4,7 +4,7 @@ metadata:
   name: at-ai-tool-dashboard-ingress
   namespace: advtech
   annotations:
-    ingress.gcp.kubernetes.io/pre-shared-cert: "javiastest-gcp-acs-org"
+    ingress.gcp.kubernetes.io/pre-shared-cert: "at-ai-tool-dashboard-ssl-cert-stage"
     kubernetes.io/ingress.class: "gce-internal"
     kubernetes.io/ingress.regional-static-ip-name: "at-ai-tool-dashboard-static-ip-stage"
     networking.gke.io/suppress-firewall-xpn-error: "true"

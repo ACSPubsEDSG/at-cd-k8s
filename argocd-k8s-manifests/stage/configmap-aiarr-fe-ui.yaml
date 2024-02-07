@@ -6,11 +6,11 @@ metadata:
 data:
   sso.properties: |
     env=test
-    appid=AIARRGCPSTAG
+    appid=AIARRSTAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/reviewers
-    cancelurl=https://javiastest.gcp.acs.org/reviewers/home
+    cancelurl=https://javiastest.acs.org/reviewers/home
     continueLabel=Back to AIARR
     default_max_age=30
-    redirecturl=https://javiastest.gcp.acs.org/reviewers/home/redirect
-    returnURL=https://javiastest.gcp.acs.org/reviewers/home
+    redirecturl=https://javiastest.acs.org/reviewers/home/redirect
+    returnURL=https://javiastest.acs.org/reviewers/home

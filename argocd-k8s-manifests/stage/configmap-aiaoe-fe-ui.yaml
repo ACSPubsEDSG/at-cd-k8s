@@ -6,11 +6,11 @@ metadata:
 data:
   sso.properties: |
     env=test
-    appid=AIASEGCPSTAG
+    appid=AIASESTAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/originality
-    cancelurl=https://javiastest.gcp.acs.org/originality/home
+    cancelurl=https://javiastest.acs.org/originality/home
     continueLabel=Back to AIASE
     default_max_age=30
-    redirecturl=https://javiastest.gcp.acs.org/originality/home/redirect
-    returnURL=https://javiastest.gcp.acs.org/originality/home
+    redirecturl=https://javiastest.acs.org/originality/home/redirect
+    returnURL=https://javiastest.acs.org/originality/home

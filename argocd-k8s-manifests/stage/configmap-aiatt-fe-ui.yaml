@@ -6,11 +6,11 @@ metadata:
 data:
   sso.properties: |
     env=test
-    appid=AIATTGCPSTAG
+    appid=AIATTSTAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/transfer
-    cancelurl=https://javiastest.gcp.acs.org/transfer/home
+    cancelurl=https://javiastest.acs.org/transfer/home
     continueLabel=Back to AIATT
     default_max_age=30
-    redirecturl=https://javiastest.gcp.acs.org/transfer/home/redirect
-    returnURL=https://javiastest.gcp.acs.org/transfer/home
+    redirecturl=https://javiastest.acs.org/transfer/home/redirect
+    returnURL=https://javiastest.acs.org/transfer/home
