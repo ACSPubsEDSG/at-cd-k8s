@@ -6,11 +6,11 @@ metadata:
 data:
   sso.properties: |
     env=test
-    appid=AIAERGCPSTAG
+    appid=AIAERSTAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/editors
-    cancelurl=https://javiastest.gcp.acs.org/editors/home
+    cancelurl=https://javiastest.acs.org/editors/home
     continueLabel=Back to AIAER
     default_max_age=30
-    redirecturl=https://javiastest.gcp.acs.org/editors/home/redirect
-    returnURL=https://javiastest.gcp.acs.org/editors/home
+    redirecturl=https://javiastest.acs.org/editors/home/redirect
+    returnURL=https://javiastest.acs.org/editors/home
