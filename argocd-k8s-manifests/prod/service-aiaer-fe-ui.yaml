@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: at-ai-att-fe-ui
+  name: at-ai-aer-fe-ui
   namespace: advtech
   annotations:
     cloud.google.com/backend-config: '{"ports": {"8080":"at-ai-att-fe-backendconfig"}}'
     cloud.google.com/neg: '{"ingress": true}'
   labels:
-    app: at-ai-att-fe-ui
+    app: at-ai-aer-fe-ui
 spec:
   type: ClusterIP
   ports:
@@ -16,4 +16,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: at-ai-att-fe-ui
+    app: at-ai-aer-fe-ui
+    
