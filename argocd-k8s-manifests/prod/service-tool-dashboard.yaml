@@ -16,4 +16,3 @@ spec:
       name: http
   selector:
     app: at-ai-tool-dashboard
-    

@@ -4,7 +4,7 @@ metadata:
   name: at-ai-att-fe-ui
   namespace: advtech
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: at-ai-att-fe-ui
@@ -15,13 +15,13 @@ spec:
     spec:
       containers:
       - name: at-ai-att-fe-ui
-        image: ghcr.io/acspubsedsg/at-ai-att-fe-ui:sha-09918f3
-        imagePullPolicy: IfNotPresent
+        image: ghcr.io/acspubsedsg/at-ai-att-fe-ui:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: test
+          value: prod
         resources:
           requests:
             cpu: 1000m 
@@ -29,13 +29,28 @@ spec:
           limits:
             cpu: 1500m 
             memory: 3072Mi
+        livenessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          httpGet:
+            path: /transfer/HealthMonitor
+            port: 8080
+        readinessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          httpGet:
+            path: /transfer/HealthMonitor
+            port: 8080
         volumeMounts:
         - mountPath: /appl/iapps/ssoProperties/
           name: at-ai-att-fe-ui-config-volume
+      hostAliases:
+        - hostnames:
+            - "sso.acs.org"
+          ip: "45.60.77.135"
       volumes:
         - name: at-ai-att-fe-ui-config-volume
           configMap:
             name: at-ai-att-fe-ui-configmap
       imagePullSecrets:
         - name: ghcr-token-github-com
-        
