@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: filestore-nfs-pv
+  namespace: advtech
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Ti
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  csi:
+    driver: filestore.csi.storage.gke.io
+    volumeHandle: "modeInstance/us-east4-a/advtech-fs-hhd-prod/advtech_fs_prod"
+    volumeAttributes:
+      ip: 10.12.11.18
+      volume: advtech_fs_prod

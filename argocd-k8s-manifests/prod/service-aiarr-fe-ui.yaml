@@ -4,6 +4,7 @@ metadata:
   name: at-ai-arr-fe-ui
   namespace: advtech
   annotations:
+    cloud.google.com/backend-config: '{"ports": {"8080":"at-ai-fe-backendconfig"}}'
     cloud.google.com/neg: '{"ingress": true}'
   labels:
     app: at-ai-arr-fe-ui
