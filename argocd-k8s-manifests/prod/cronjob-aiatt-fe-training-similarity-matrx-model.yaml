@@ -21,17 +21,17 @@ spec:
               value: /usr/local/nvidia/lib64            
             resources:
               requests:
-                cpu: 1000m 
-                memory: 2048Mi
+                cpu: 5000m
+                memory: 14000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 1500m 
-                memory: 3072Mi
+                cpu: 6000m
+                memory: 15000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mv config/manuscript-transfer-cnn_prod.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python -u jrn_top_n_2.py
+            - mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/model && mkdir -p /NAS/AIMODELS/manuscript-transfer-cnn/aiatt-model/data && mv config/manuscript-transfer-cnn_prod.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python -u jrn_top_n_2.py
             volumeMounts:
             - mountPath: /usr/local/nvidia
               name: nvidia
