@@ -4,8 +4,8 @@ metadata:
   name: at-ai-att-fe-training-trnsfrcnnjob
   namespace: advtech
 spec:
-  schedule: "50 10 * * *"
-  concurrencyPolicy: Replace
+  schedule: "0/2 * * * *"
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
@@ -21,12 +21,12 @@ spec:
               value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 12000m
-                memory: 14000Mi
+                cpu: 14000m
+                memory: 19000Mi
                 nvidia.com/gpu: 1
               limits:
                 cpu: 15500m
-                memory: 15000Mi
+                memory: 20000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
