@@ -4,8 +4,8 @@ metadata:
   name: at-ai-att-fe-training-gnsmjob
   namespace: advtech
 spec:
-  schedule: "0/2 * * * *"
-  concurrencyPolicy: Forbid
+  schedule: "30 04 * * *"
+  concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
