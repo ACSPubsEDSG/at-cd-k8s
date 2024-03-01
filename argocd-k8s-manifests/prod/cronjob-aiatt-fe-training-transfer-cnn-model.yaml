@@ -4,8 +4,8 @@ metadata:
   name: at-ai-att-fe-training-trnsfrcnnjob
   namespace: advtech
 spec:
-  schedule: "50 10 * * *"
-  concurrencyPolicy: Replace
+  schedule: "0/2 * * * *"
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
