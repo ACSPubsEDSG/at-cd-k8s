@@ -8,6 +8,11 @@ spec:
   selector:
     matchLabels:
       app: at-ai-att-fe-inferencing
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
   template:
     metadata:
       labels:
