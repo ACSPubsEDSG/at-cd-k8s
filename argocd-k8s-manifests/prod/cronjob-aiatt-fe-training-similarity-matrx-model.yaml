@@ -4,6 +4,7 @@ metadata:
   name: at-ai-att-fe-training-smlrtmtrxjob
   namespace: advtech
 spec:
+  timeZone: "EST"
   schedule: "0 05 * * *"
   concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 1

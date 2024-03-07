@@ -4,8 +4,9 @@ metadata:
   name: at-ai-att-fe-inferencing-restart
   namespace: advtech
 spec:
+  timeZone: "EST"
   schedule: "0 07 * * *"
-  concurrencyPolicy: Forbid
+  concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
