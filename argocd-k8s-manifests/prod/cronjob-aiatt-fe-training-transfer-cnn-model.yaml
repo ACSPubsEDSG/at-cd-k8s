@@ -5,8 +5,8 @@ metadata:
   namespace: advtech
 spec:
   timeZone: "EST"
-  schedule: "50 14 * * *"
-  concurrencyPolicy: Replace
+  schedule: "0/2 * * * *"
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
