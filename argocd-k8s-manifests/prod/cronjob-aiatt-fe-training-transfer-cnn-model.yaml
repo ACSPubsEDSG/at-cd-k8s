@@ -43,7 +43,7 @@ spec:
             operator: Exists
             effect: NoSchedule
           imagePullSecrets:
-          - name: ghcr-token-github-com
+          - name: ghcr-token-github-com-prod
           volumes:
           - name: nvidia          
             hostPath:
