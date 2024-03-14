@@ -5,8 +5,8 @@ metadata:
   namespace: advtech
 spec:
   timeZone: "EST"
-  schedule: "0/2 * * * *"
-  concurrencyPolicy: Forbid
+  schedule: "50 14 * * *"
+  concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
@@ -43,7 +43,7 @@ spec:
             operator: Exists
             effect: NoSchedule
           imagePullSecrets:
-          - name: ghcr-token-github-com-prod
+          - name: ghcr-token-github-com
           volumes:
           - name: nvidia          
             hostPath:
