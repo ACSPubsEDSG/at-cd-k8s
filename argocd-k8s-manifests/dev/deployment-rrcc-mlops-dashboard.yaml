@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-rrcc-mlops-dashboard
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-rrcc-mlops-dashboard
+  template:
+    metadata:
+      labels:
+        app: at-rrcc-mlops-dashboard
+    spec:
+      containers:
+      - name: at-rrcc-mlops-dashboard
+        image: ghcr.io/acspubsedsg/at-rrcc-mlops-dashboard:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+      imagePullSecrets:
+        - name: ghcr-token-github-com  
