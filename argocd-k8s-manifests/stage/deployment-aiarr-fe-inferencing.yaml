@@ -23,9 +23,11 @@ spec:
             requests:
               cpu: 1000m
               memory: 31400Mi
+              nvidia.com/gpu: 1
             limits:
               cpu: 1500m
-              memory: 30000Mi
+              memory: 32000Mi
+              nvidia.com/gpu: 1
           command:
           - /bin/sh
           - -c
@@ -33,6 +35,10 @@ spec:
           volumeMounts:
             - name: filestore
               mountPath: /NAS
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
       imagePullSecrets:
         - name: ghcr-token-github-com
       volumes:
