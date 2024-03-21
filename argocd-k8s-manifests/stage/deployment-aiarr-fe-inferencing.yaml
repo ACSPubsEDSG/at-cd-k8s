@@ -18,14 +18,14 @@ spec:
           image: ghcr.io/acspubsedsg/at-ai-arr-fe-inferencing:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 5002
+            - containerPort: 5003
           resources:
             requests:
               cpu: 1000m
-              memory: 10400Mi
+              memory: 31400Mi
             limits:
               cpu: 1500m
-              memory: 11000Mi
+              memory: 30000Mi
           command:
           - /bin/sh
           - -c
