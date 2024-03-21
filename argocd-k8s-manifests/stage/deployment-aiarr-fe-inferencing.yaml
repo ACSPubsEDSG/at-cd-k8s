@@ -17,6 +17,9 @@ spec:
         - name: at-ai-arr-fe-inferencing
           image: ghcr.io/acspubsedsg/at-ai-arr-fe-inferencing:latest
           imagePullPolicy: Always
+          env:
+          - name: LD_LIBRARY_PATH
+            value: /usr/local/nvidia/lib64
           ports:
             - containerPort: 5003
           resources:
