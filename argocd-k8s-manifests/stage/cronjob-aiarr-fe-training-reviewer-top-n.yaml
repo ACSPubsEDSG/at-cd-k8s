@@ -4,8 +4,8 @@ metadata:
   name: at-ai-arr-fe-training-reviewer-top-n
   namespace: advtech
 spec:
-  schedule: "*/60 05-17 * * *"
-  concurrencyPolicy: Replace
+  schedule: "*/60 5-17 * * *"
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
@@ -22,11 +22,11 @@ spec:
             resources:
               requests:
                 cpu: 3200m 
-                memory: 10000Mi
+                memory: 19500Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 3500m 
-                memory: 11800Mi
+                cpu: 4500m 
+                memory: 20000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
