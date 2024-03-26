@@ -40,6 +40,8 @@ spec:
             mountPath: /NAS
           - mountPath: /usr/local/nvidia
             name: nvidia
+          - mountPath: /appl/iapps/config/
+            name: secret-server-configmap
       tolerations:
       - key: nvidia.com/gpu
         operator: Exists
@@ -54,3 +56,6 @@ spec:
         persistentVolumeClaim:
           claimName: filestore-nfs-pvc
           readOnly: false
+      - name: secret-server-configmap
+        configMap:
+          name: secret-server-configmap

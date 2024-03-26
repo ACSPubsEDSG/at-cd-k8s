@@ -4,7 +4,7 @@ metadata:
   name: at-ai-arr-fe-training-reviewer-top-n
   namespace: advtech
 spec:
-  schedule: "*/2 * * * *"
+  schedule: "*/60 05-17 * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
@@ -36,7 +36,9 @@ spec:
             - name: filestore 
               mountPath: /NAS
             - mountPath: /usr/local/nvidia
-              name: nvidia            
+              name: nvidia
+            - mountPath: /appl/iapps/config/
+              name: secret-server-configmap
           tolerations:
           - key: nvidia.com/gpu
             operator: Exists
@@ -51,4 +53,7 @@ spec:
             persistentVolumeClaim:
               claimName: filestore-nfs-pvc
               readOnly: false
+          - name: secret-server-configmap
+            configMap:
+              name: secret-server-configmap
           restartPolicy: OnFailure
