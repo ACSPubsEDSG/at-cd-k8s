@@ -4,7 +4,7 @@ metadata:
   name: at-ai-arr-fe-training-reviewer-top-n
   namespace: advtech
 spec:
-  schedule: "*/60 05-17 * * *"
+  schedule: "*/2 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
