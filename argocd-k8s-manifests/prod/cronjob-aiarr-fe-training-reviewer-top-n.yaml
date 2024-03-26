@@ -22,7 +22,7 @@ spec:
             resources:
               requests:
                 cpu: 13200m
-                memory: 50500Mi
+                memory: 50000Mi
                 nvidia.com/gpu: 1
               limits:
                 cpu: 14500m
