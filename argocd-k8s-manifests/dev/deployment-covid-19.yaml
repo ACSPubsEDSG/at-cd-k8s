@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: covid-19 
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: covid-19 
+  template:
+    metadata:
+      labels:
+        app: covid-19 
+    spec:
+      containers:
+      - name: covid-19 
+        image: ghcr.io/acspubsedsg/at-covid-19:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+      imagePullSecrets:
+        - name: ghcr-token-github-com  

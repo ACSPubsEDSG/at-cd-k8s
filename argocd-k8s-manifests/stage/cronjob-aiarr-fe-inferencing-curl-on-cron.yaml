@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cronjob-aiarr-fe-inferencing-curl-on-cron
+  namespace: advtech
+spec:
+  schedule: "*/2 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: curlimage
+              image: curlimages/curl
+              imagePullPolicy: IfNotPresent
+              resources:
+                requests:
+                  cpu: 1000m
+                  memory: 1400Mi
+                limits:
+                  cpu: 1000m
+                  memory: 2000Mi
+              command:
+                - /bin/sh
+                - -c
+              args:
+                - curl -s 'http://at-ai-arr-fe-inferencing:5003/manuscript-reviewer/process-s1'
+          restartPolicy: OnFailure

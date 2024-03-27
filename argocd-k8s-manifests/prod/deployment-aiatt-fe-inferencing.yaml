@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-ai-att-fe-inferencing
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-ai-att-fe-inferencing
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: at-ai-att-fe-inferencing
+    spec:
+      containers:
+      - name: at-ai-att-fe-inferencing
+        image: ghcr.io/acspubsedsg/at-ai-att-fe-inferencing:prod
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5002
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 2048Mi
+          limits:
+            cpu: 1500m
+            memory: 3072Mi
+        command:
+        - /bin/sh
+        - -c
+        - mv config/manuscript-transfer-cnn_prod.ini config/manuscript-transfer-cnn.ini && conda run --name manuscript-transfer-cnn python predict.py
+        volumeMounts:
+        - name: filestore
+          mountPath: /NAS
+      imagePullSecrets:
+      - name: ghcr-token-github-com
+      volumes:
+      - name: filestore
+        persistentVolumeClaim:
+          claimName: filestore-nfs-pvc
+          readOnly: false

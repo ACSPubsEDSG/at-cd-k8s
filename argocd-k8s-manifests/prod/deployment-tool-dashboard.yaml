@@ -4,7 +4,7 @@ metadata:
   name: at-ai-tool-dashboard
   namespace: advtech
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: at-ai-tool-dashboard
@@ -15,13 +15,13 @@ spec:
     spec:
       containers:
       - name: at-ai-tool-dashboard
-        image: ghcr.io/acspubsedsg/at-ai-tool-dashboard:sha-bb76d51
-        imagePullPolicy: IfNotPresent
+        image: ghcr.io/acspubsedsg/at-ai-tool-dashboard:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: test
+          value: prod
         resources:
           requests:
             cpu: 1000m 
@@ -44,6 +44,10 @@ spec:
         volumeMounts:
         - mountPath: /appl/iapps/dashboard/
           name: at-ai-tool-dashboard-config-volume
+      hostAliases:
+        - hostnames:
+            - "sso.acs.org"
+          ip: "45.60.77.135"
       volumes:
         - name: at-ai-tool-dashboard-config-volume
           configMap:

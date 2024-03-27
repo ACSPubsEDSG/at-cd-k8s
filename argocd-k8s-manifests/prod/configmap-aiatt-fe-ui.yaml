@@ -13,3 +13,4 @@ data:
     continueLabel=Back to AIATT
     default_max_age=30
     redirecturl=https://javias.acs.org/transfer/home/redirect
+    returnURL=https://javias.acs.org/transfer/home

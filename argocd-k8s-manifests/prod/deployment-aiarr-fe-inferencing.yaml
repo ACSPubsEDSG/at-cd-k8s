@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: at-ai-arr-fe-inferencing
-          image: ghcr.io/acspubsedsg/at-ai-arr-fe-inferencing:latest
+          image: ghcr.io/acspubsedsg/at-ai-arr-fe-inferencing:prod
           imagePullPolicy: Always
           env:
           - name: LD_LIBRARY_PATH
@@ -34,12 +34,14 @@ spec:
           command:
           - /bin/sh
           - -c
-          - mv document-top-n_staging.ini document-top-n.ini && conda run --name aiarr_specter python manuscript_reviewer_realtime.py
+          - mv document-top-n_prod.ini document-top-n.ini && conda run --name aiarr_specter python manuscript_reviewer_realtime.py
           volumeMounts:
           - name: filestore
             mountPath: /NAS
           - mountPath: /usr/local/nvidia
             name: nvidia
+          - mountPath: /appl/iapps/config/
+            name: secret-server-configmap
       tolerations:
       - key: nvidia.com/gpu
         operator: Exists
@@ -54,3 +56,6 @@ spec:
         persistentVolumeClaim:
           claimName: filestore-nfs-pvc
           readOnly: false
+      - name: secret-server-configmap
+        configMap:
+          name: secret-server-configmap

@@ -14,29 +14,31 @@ spec:
         spec:
           containers:
           - name: at-ai-arr-fe-training-reviewer-top-n
-            image: ghcr.io/acspubsedsg/at-ai-arr-fe-training:latest
+            image: ghcr.io/acspubsedsg/at-ai-arr-fe-training:prod
             imagePullPolicy: Always
             env:
             - name: LD_LIBRARY_PATH
               value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 3200m 
-                memory: 19500Mi
+                cpu: 13200m
+                memory: 50000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 4500m
-                memory: 20000Mi
+                cpu: 14500m
+                memory: 50000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/manuscript-reviewer/vector && mkdir -p /NAS/AIMODELS/manuscript-reviewer/data && mv document-top-n_staging.ini document-top-n.ini && sh reviewer_top_n.sh
+            - mkdir -p /NAS/AIMODELS/manuscript-reviewer/vector && mkdir -p /NAS/AIMODELS/manuscript-reviewer/data && mv document-top-n_prod.ini document-top-n.ini && sh reviewer_top_n.sh
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
             - mountPath: /usr/local/nvidia
-              name: nvidia            
+              name: nvidia
+            - mountPath: /appl/iapps/config/
+              name: secret-server-configmap
           tolerations:
           - key: nvidia.com/gpu
             operator: Exists
@@ -51,4 +53,7 @@ spec:
             persistentVolumeClaim:
               claimName: filestore-nfs-pvc
               readOnly: false
+          - name: secret-server-configmap
+            configMap:
+              name: secret-server-configmap
           restartPolicy: OnFailure

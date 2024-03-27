@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: at-ai-arr-fe-ui
+  name: at-ai-arr-fe-api
   namespace: advtech
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: at-ai-arr-fe-ui
+      app: at-ai-arr-fe-api
   template:
     metadata:
       labels:
-        app: at-ai-arr-fe-ui
+        app: at-ai-arr-fe-api
     spec:
       containers:
-      - name: at-ai-arr-fe-ui
-        image: ghcr.io/acspubsedsg/at-ai-arr-fe-ui:latest
+      - name: at-ai-arr-fe-api
+        image: ghcr.io/acspubsedsg/at-ai-arr-fe-api:prod
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -30,16 +30,11 @@ spec:
             cpu: 1500m 
             memory: 3072Mi
         volumeMounts:
-        - mountPath: /appl/iapps/ssoProperties/
-          name: at-ai-arr-fe-ui-config-volume
-      hostAliases:
-        - hostnames:
-            - "sso.acs.org"
-          ip: "45.60.77.135"
+        - mountPath: /appl/iapps/config/
+          name: secret-server-configmap
       volumes:
-        - name: at-ai-arr-fe-ui-config-volume
+        - name: secret-server-configmap
           configMap:
-            name: at-ai-arr-fe-ui-configmap
+            name: secret-server-configmap
       imagePullSecrets:
-        - name: ghcr-token-github-com
-        
+        - name: ghcr-token-github-com  

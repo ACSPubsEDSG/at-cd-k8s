@@ -18,11 +18,11 @@ spec:
             imagePullPolicy: Always
             resources:
               requests:
-                cpu: 12000m
+                cpu: 5500m
                 memory: 14000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 15500m
+                cpu: 6000m
                 memory: 15000Mi
                 nvidia.com/gpu: 1
             command:
