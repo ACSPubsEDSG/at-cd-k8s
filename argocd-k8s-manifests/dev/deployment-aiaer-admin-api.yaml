@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aiaer-admin-api
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aiaer-admin-api 
+  template:
+    metadata:
+      labels:
+        app: aiaer-admin-api 
+    spec:
+      containers:
+      - name: aiaer-admin-api 
+        image: ghcr.io/acspubsedsg/at-aiaer-admin-api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+      imagePullSecrets:
+        - name: ghcr-token-github-com  
