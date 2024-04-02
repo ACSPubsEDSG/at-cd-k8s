@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cen-article-select
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cen-article-select 
+  template:
+    metadata:
+      labels:
+        app: cen-article-select 
+    spec:
+      containers:
+      - name: cen-article-select 
+        image: ghcr.io/acspubsedsg/at-cen-article-select:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: test
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+      imagePullSecrets:
+        - name: ghcr-token-github-com  
