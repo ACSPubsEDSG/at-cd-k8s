@@ -1,10 +1,10 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-aer-nano-fe-training-prepare-data
+  name: at-ai-aer-nano-fe-training-acs-bert-ae
   namespace: advtech
 spec:
-  schedule: "0 4 * * 6"
+  schedule: "0 7 * * 6"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
@@ -13,9 +13,12 @@ spec:
       template:
         spec:
           containers:
-          - name: at-ai-aer-nano-fe-training-prepare-data
+          - name: at-ai-aer-nano-fe-training-acs-bert-ae
             image: ghcr.io/acspubsedsg/at-ai-aer-nano-fe-training:latest
             imagePullPolicy: Always
+            env:
+            - name: LD_LIBRARY_PATH
+              value: /usr/local/nvidia/lib64
             resources:
               requests:
                 cpu: 3200m 
@@ -28,17 +31,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - mkdir -p /NAS/AIMODELS/aiaer-nn/data/ae
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/ee_data/ee
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/tmp_data/ae 
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/tmp_data/ee
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/tmp_model/ae/bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/tmp_model/ee/bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/model/ae/bert_output_model
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/model/ae/predict_output
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/ee_model/ee/predict_output
-              && mkdir -p /NAS/AIMODELS/aiaer-nn/ee_model/ee/bert_output_model
-              && mv nano_stag_db.ini nano_db.ini && sh nano_prepare_data.sh
+            - mv nano_stag_db.ini nano_db.ini && sh acs_bert_ee.sh
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
