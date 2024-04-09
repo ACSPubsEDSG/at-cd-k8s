@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-aer-nano-fe-training-acs-bert-ae
+  name: at-ai-aer-nano-fe-training-acs-bert-ee
   namespace: advtech
 spec:
   schedule: "0 7 * * 6"
@@ -13,7 +13,7 @@ spec:
       template:
         spec:
           containers:
-          - name: at-ai-aer-nano-fe-training-acs-bert-ae
+          - name: at-ai-aer-nano-fe-training-acs-bert-ee
             image: ghcr.io/acspubsedsg/at-ai-aer-nano-fe-training:latest
             imagePullPolicy: Always
             env:
@@ -21,12 +21,12 @@ spec:
               value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 3200m 
-                memory: 8000Mi
+                cpu: 4200m 
+                memory: 19000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 3500m 
-                memory: 8000Mi
+                cpu: 4500m 
+                memory: 20000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
