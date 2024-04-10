@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-s1-notification 
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-s1-notification 
+  template:
+    metadata:
+      labels:
+        app: ai-s1-notification 
+    spec:
+      containers:
+      - name: ai-s1-notification 
+        image: ghcr.io/acspubsedsg/at-ai-s1-notification:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: test
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+      imagePullSecrets:
+        - name: ghcr-token-github-com  
