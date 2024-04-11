@@ -22,11 +22,11 @@ spec:
            resources:
              requests:
                cpu: 13200m
-               memory: 93Gi
+               memory: 183Gi
                nvidia.com/gpu: 1
              limits:
                cpu: 15500m
-               memory: 93Gi
+               memory: 183Gi
                nvidia.com/gpu: 1
            command:
            - /bin/sh
@@ -43,7 +43,7 @@ spec:
            effect: NoSchedule
          - key: enable
            operator: "Equal"
-           value: "highcpugpu"
+           value: "highcpugpumemory"
            effect: NoSchedule
          imagePullSecrets:
          - name: ghcr-token-github-com
