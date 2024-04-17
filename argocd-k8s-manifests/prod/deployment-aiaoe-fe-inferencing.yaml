@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-ai-aoe-fe-inferencing
+  namespace: advtech
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: at-ai-aoe-fe-inferencing
+  template:
+    metadata:
+      labels:
+        app: at-ai-aoe-fe-inferencing
+    spec:
+      containers:
+      - name: at-ai-aoe-fe-inferencing
+        image: ghcr.io/acspubsedsg/at-ai-aoe-fe-inferencing:prod
+        imagePullPolicy: Always
+        env:
+        - name: LD_LIBRARY_PATH
+          value: /usr/local/nvidia/lib64
+        ports:
+          - containerPort: 5004
+        resources:
+          requests:
+            cpu: 4200m
+            memory: 146Gi
+            nvidia.com/gpu: 1
+          limits:
+            cpu: 4500m
+            memory: 146Gi
+            nvidia.com/gpu: 1
+        livenessProbe:
+          initialDelaySeconds: 1500
+          periodSeconds: 5
+          httpGet:
+            path: /HealthMonitor
+            port: 5004
+        readinessProbe:
+          initialDelaySeconds: 1500
+          periodSeconds: 5
+          httpGet:
+            path: /HealthMonitor
+            port: 5004
+        command:
+          - /bin/sh
+          - -c
+          - mv aiamne-specter_prod.ini aiamne-specter.ini && python SimEvaluatorRealtime.py
+        volumeMounts:
+          - name: filestore
+            mountPath: /NAS
+          - mountPath: /usr/local/nvidia
+            name: nvidia
+          - mountPath: /appl/iapps/config/
+            name: secret-server-configmap
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+        - key: enable
+          operator: "Equal"
+          value: "highcpugpumemory"
+          effect: NoSchedule
+      imagePullSecrets:
+        - name: ghcr-token-github-com
+      volumes:
+        - name: nvidia
+          hostPath:
+            path: /home/kubernetes/bin/nvidia
+        - name: filestore
+          persistentVolumeClaim:
+            claimName: filestore-nfs-pvc
+            readOnly: false
+        - name: secret-server-configmap
+          configMap:
+            name: secret-server-configmap
