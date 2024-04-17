@@ -24,4 +24,6 @@ spec:
             - -c
             - >-
               kubectl rollout restart deployment/at-ai-att-fe-inferencing &&
-              kubectl rollout status deployment/at-ai-att-fe-inferencing
+              kubectl rollout status deployment/at-ai-att-fe-inferencing &&
+              kubectl rollout restart deployment/at-ai-aoe-fe-inferencing &&
+              kubectl rollout status deployment/at-ai-aoe-fe-inferencing
