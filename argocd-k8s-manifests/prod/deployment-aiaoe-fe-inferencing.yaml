@@ -38,13 +38,13 @@ spec:
             nvidia.com/gpu: 1
         livenessProbe:
           initialDelaySeconds: 1500
-          periodSeconds: 5
+          periodSeconds: 60
           httpGet:
             path: /HealthMonitor
             port: 5004
         readinessProbe:
           initialDelaySeconds: 1500
-          periodSeconds: 5
+          periodSeconds: 60
           httpGet:
             path: /HealthMonitor
             port: 5004
