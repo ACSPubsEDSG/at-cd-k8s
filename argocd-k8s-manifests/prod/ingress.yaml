@@ -44,14 +44,14 @@ spec:
           - path: /originality/*
             pathType: ImplementationSpecific
             backend:
-             service:
+              service:
                 name: at-ai-aoe-fe-ui
                 port:
                   number: 8080
           - path: /editors/*
             pathType: ImplementationSpecific
             backend:
-             service:
+              service:
                 name: at-ai-aer-fe-ui
                 port:
                   number: 8080
