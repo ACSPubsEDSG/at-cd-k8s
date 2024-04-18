@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: at-ai-aer-admin-ui-configmap
+  namespace: advtech
+data:
+  sso.properties: |
+    env=dev
+    appid=AIAERADMIN_LOCAL
+    scope=role email constituentid acsid firstname lastname groups divisions source products offer
+    redirecturl=http://localhost:9999/editors/home/redirect
+    protectedPaths=/editors
+    protectedFiles=
+    continueLabel=Back to AIAER Admin
+    cancelurl=http://localhost:9999/editors/home
