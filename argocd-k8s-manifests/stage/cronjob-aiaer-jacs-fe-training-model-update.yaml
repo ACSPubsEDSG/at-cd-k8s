@@ -1,10 +1,10 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-aer-ami-fe-training-acs-bert-ae
+  name: at-ai-aer-jacs-fe-training-model-update
   namespace: advtech
 spec:
-  schedule: "0 6 * * 0"
+  schedule: "0 11 * * 6"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
@@ -13,25 +13,25 @@ spec:
       template:
         spec:
           containers:
-          - name: at-ai-aer-ami-fe-training-acs-bert-ae
-            image: ghcr.io/acspubsedsg/at-ai-aer-ami-fe-training:latest
+          - name: at-ai-aer-jacs-fe-training-model-update
+            image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:latest
             imagePullPolicy: Always
             env:
             - name: LD_LIBRARY_PATH
               value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 4200m 
-                memory: 19500Mi
+                cpu: 3200m 
+                memory: 8000Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 4500m 
-                memory: 20000Mi
+                cpu: 3500m 
+                memory: 8000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
             - -c
-            - mv aiaer_ami_stag.ini aiaer_ami.ini && sh acs_bert_ae_stag.sh
+            - mv aiaer_scibert_stag.ini aiaer_scibert.ini && conda run --name aiaer_scibert python model_update.py
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
