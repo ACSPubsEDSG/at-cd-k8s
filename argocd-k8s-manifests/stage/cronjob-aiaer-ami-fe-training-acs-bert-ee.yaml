@@ -21,17 +21,17 @@ spec:
               value: /usr/local/nvidia/lib64
             resources:
               requests:
-                cpu: 3200m 
-                memory: 8000Mi
+                cpu: 4200m 
+                memory: 19500Mi
                 nvidia.com/gpu: 1
               limits:
-                cpu: 3500m 
-                memory: 8000Mi
+                cpu: 4500m 
+                memory: 20000Mi
                 nvidia.com/gpu: 1
             command:
             - /bin/sh
             - -c
-            - mv aiaer_scibert_stag.ini aiaer_scibert.ini && sh acs_bert_ee_stag.sh
+            - mv aiaer_ami_stag.ini aiaer_ami.ini && sh acs_bert_ee_stag.sh
             volumeMounts:
             - name: filestore 
               mountPath: /NAS
