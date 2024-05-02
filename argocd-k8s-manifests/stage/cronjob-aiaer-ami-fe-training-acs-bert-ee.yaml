@@ -16,9 +16,6 @@ spec:
           - name: at-ai-aer-ami-fe-training-acs-bert-ee
             image: ghcr.io/acspubsedsg/at-ai-aer-ami-fe-training:latest
             imagePullPolicy: Always
-            env:
-            - name: LD_LIBRARY_PATH
-              value: /usr/local/nvidia/lib64
             resources:
               requests:
                 cpu: 4200m 
