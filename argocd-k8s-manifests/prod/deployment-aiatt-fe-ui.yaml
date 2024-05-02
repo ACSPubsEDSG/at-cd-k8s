@@ -22,6 +22,8 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
+        - name: TZ
+          value: EST
         resources:
           requests:
             cpu: 1000m 
