@@ -29,7 +29,7 @@ spec:
           command:  
           - /bin/sh
           - -c
-          - mv aiaer_ami_stag.ini aiaer_ami.ini && conda run --name aiaer_scibert python ami_predict_ee_api.py
+          - mv aiaer_ami_stag.ini aiaer_ami.ini && conda run --name aiaer_scibert_tf2 python ami_predict_ee_api.py
           volumeMounts:
             - name: filestore
               mountPath: /NAS
