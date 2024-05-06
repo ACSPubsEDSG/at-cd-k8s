@@ -22,6 +22,8 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: test
+        - name: s1.bidirectional.process.journalId
+          value: ja
         resources:
           requests:
             cpu: 1000m 
