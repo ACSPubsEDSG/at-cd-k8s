@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-manuscript-editor-distribution-ami
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-manuscript-editor-distribution-ami
+  template:
+    metadata:
+      labels:
+        app: at-manuscript-editor-distribution-ami
+    spec:
+      containers:
+      - name: at-manuscript-editor-distribution-ami
+        image: ghcr.io/acspubsedsg/at-manuscript-editor-distribution-ami:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: test
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+      imagePullSecrets:
+        - name: ghcr-token-github-com  
