@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: at-manuscript-editor-distribution
+  name: at-aiaer-s1-bidirectional-nano
   namespace: advtech
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: at-manuscript-editor-distribution
+      app: at-aiaer-s1-bidirectional-nano
   template:
     metadata:
       labels:
-        app: at-manuscript-editor-distribution
+        app: at-aiaer-s1-bidirectional-nano
     spec:
       containers:
-      - name: at-manuscript-editor-distribution
-        image: ghcr.io/acspubsedsg/at-manuscript-editor-distribution:latest
+      - name: at-aiaer-s1-bidirectional-nano
+        image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -31,10 +31,10 @@ spec:
             memory: 3072Mi
       #   volumeMounts:
       #   - mountPath: /appl/iapps/ssoProperties/
-      #     name: at-manuscript-editor-distribution-config-volume
+      #     name: at-aiaer-s1-bidirectional-config-volume
       # volumes:
-      #   - name: at-manuscript-editor-distribution-config-volume
+      #   - name: at-aiaer-s1-bidirectional-config-volume
       #     configMap:
-      #       name: at-manuscript-editor-distribution-configmap
+      #       name: at-aiaer-s1-bidirectional-configmap
       imagePullSecrets:
         - name: ghcr-token-github-com  

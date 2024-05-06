@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: at-manuscript-editor-distribution
+  name: at-aiaer-s1-bidirectional--nano
   namespace: advtech
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
   labels:
-    app: at-manuscript-editor-distribution
+    app: at-aiaer-s1-bidirectional--nano
 spec:
   type: ClusterIP
   ports:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: at-manuscript-editor-distribution
+    app: at-aiaer-s1-bidirectional--nano
     
