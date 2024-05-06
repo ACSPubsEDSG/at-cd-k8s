@@ -31,5 +31,12 @@ spec:
           limits:
             cpu: 1500m 
             memory: 3072Mi
+        volumeMounts:
+        - mountPath: /appl/iapps/config/
+          name: secret-server-configmap
+      volumes:
+        - name: secret-server-configmap
+          configMap:
+            name: secret-server-configmap
       imagePullSecrets:
         - name: ghcr-token-github-com  
