@@ -1,0 +1,59 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: at-ai-aer-ami-fe-training-prepare-data
+  namespace: advtech
+spec:
+  schedule: "0 6 * * 0"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: at-ai-aer-ami-fe-training-prepare-data
+            image: ghcr.io/acspubsedsg/at-ai-aer-ami-fe-training:latest
+            imagePullPolicy: Always
+            resources:
+              requests:
+                cpu: 3200m 
+                memory: 8000Mi
+                nvidia.com/gpu: 1
+              limits:
+                cpu: 3500m 
+                memory: 8000Mi
+                nvidia.com/gpu: 1
+            command:
+            - /bin/sh
+            - -c
+            - mkdir -p /NAS/AIMODELS/aiaer-ami/data/ae
+              && mkdir -p /NAS/AIMODELS/aiaer-ami/data/ee 
+              && mkdir -p /NAS/AIMODELS/aiaer-ami/tmp_data/ae 
+              && mkdir -p /NAS/AIMODELS/aiaer-ami/tmp_model/ae/bert_output_model
+              && mkdir -p /NAS/AIMODELS/aiaer-ami/model/ae/bert_output_model
+              && mkdir -p /NAS/AIMODELS/aiaer-ami/model/ae/predict_output
+              && mkdir -p /NAS/AIMODELS/aiaer-ami/model/ee/bert_output_model
+              && mkdir -p /NAS/AIMODELS/aiaer-ami/model/ee/predict_output
+              && mv aiaer_ami_prod.ini aiaer_ami.ini && sh aiaer_ami_prepare_data.sh
+            volumeMounts:
+            - name: filestore 
+              mountPath: /NAS
+            - mountPath: /usr/local/nvidia
+              name: nvidia            
+          tolerations:
+          - key: nvidia.com/gpu
+            operator: Exists
+            effect: NoSchedule          
+          imagePullSecrets:
+          - name: ghcr-token-github-com
+          volumes:
+          - name: nvidia          
+            hostPath:
+              path: /home/kubernetes/bin/nvidia          
+          - name: filestore
+            persistentVolumeClaim:
+              claimName: filestore-nfs-pvc
+              readOnly: false
+          restartPolicy: OnFailure
