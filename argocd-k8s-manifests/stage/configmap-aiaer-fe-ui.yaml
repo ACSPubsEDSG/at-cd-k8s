@@ -6,7 +6,7 @@ metadata:
 data:
   sso.properties: |
     env=test
-    appid=AIAERSTAG
+    appid=AIAER_STAG
     scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
     protectedPaths=/editors
     cancelurl=https://javiastest.acs.org/editors/home
