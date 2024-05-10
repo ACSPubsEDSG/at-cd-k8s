@@ -4,7 +4,7 @@ metadata:
   name: at-ai-aer-jacs-fe-training-prepare-data
   namespace: advtech
 spec:
-  schedule: "0 4 * * 6"
+  schedule: "0/2 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
           - name: at-ai-aer-jacs-fe-training-prepare-data
-            image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:latest
+            image: ghcr.io/acspubsedsg/at-ai-aer-jacs-fe-training:prod
             imagePullPolicy: Always
             env:
             - name: LD_LIBRARY_PATH
