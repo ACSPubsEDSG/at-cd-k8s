@@ -4,7 +4,7 @@ metadata:
   name: at-ai-aer-nano-fe-training-acs-bert-ee
   namespace: advtech
 spec:
-  schedule: "0 7 * * 6"
+  schedule: "0/2 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
           - name: at-ai-aer-nano-fe-training-acs-bert-ee
-            image: ghcr.io/acspubsedsg/at-ai-aer-nano-fe-training:latest
+            image: ghcr.io/acspubsedsg/at-ai-aer-nano-fe-training:prod
             imagePullPolicy: Always
             env:
             - name: LD_LIBRARY_PATH
