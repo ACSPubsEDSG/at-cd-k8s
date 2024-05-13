@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-aiaer-s1-bidirectional-jacs
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-aiaer-s1-bidirectional-jacs
+  template:
+    metadata:
+      labels:
+        app: at-aiaer-s1-bidirectional-jacs
+    spec:
+      containers:
+      - name: at-aiaer-s1-bidirectional-jacs
+        image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:prod
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: prod
+        - name: s1.bidirectional.process.journalId
+          value: ja
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+      #   volumeMounts:
+      #   - mountPath: /appl/iapps/ssoProperties/
+      #     name: at-aiaer-s1-bidirectional-config-volume
+      # volumes:
+      #   - name: at-aiaer-s1-bidirectional-config-volume
+      #     configMap:
+      #       name: at-aiaer-s1-bidirectional-configmap
+      imagePullSecrets:
+        - name: ghcr-token-github-com  
