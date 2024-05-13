@@ -12,7 +12,7 @@ metadata:
 rules:
   - apiGroups: ["apps", "extensions"]
     resources: ["deployments"]
-    resourceNames: ["at-ai-att-fe-inferencing", "at-ai-aoe-fe-inferencing"]
+    resourceNames: ["at-ai-att-fe-inferencing", "at-ai-aoe-fe-inferencing","at-ai-aer-nano-fe-inferencing-ae","at-ai-aer-nano-fe-inferencing-ee","at-ai-aer-jacs-fe-inferencing-realtime-topn","at-ai-aer-jacs-fe-inferencing-predict-manuscript","at-ai-aer-ami-fe-inferencing-ae","at-ai-aer-ami-fe-inferencing-ee"]
     verbs: ["get", "patch", "list", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
