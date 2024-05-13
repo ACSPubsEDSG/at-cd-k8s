@@ -4,7 +4,7 @@ metadata:
   name: at-ai-aer-nano-fe-training-model-update
   namespace: advtech
 spec:
-  schedule: "0/2 * * * *"
+  schedule: "35 17 * * 6"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
