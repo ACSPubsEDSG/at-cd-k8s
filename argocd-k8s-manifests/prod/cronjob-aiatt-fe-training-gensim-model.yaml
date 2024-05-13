@@ -6,7 +6,7 @@ metadata:
 spec:
   timeZone: "EST"
   schedule: "0/2 * * * *"
-  concurrencyPolicy: Replace
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
