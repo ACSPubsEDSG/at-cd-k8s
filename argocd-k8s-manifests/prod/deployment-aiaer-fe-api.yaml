@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: at-ai-aer-fe-api
-        image: ghcr.io/acspubsedsg/at-ai-aer-fe-api:latest
+        image: ghcr.io/acspubsedsg/at-ai-aer-fe-api:prod
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
