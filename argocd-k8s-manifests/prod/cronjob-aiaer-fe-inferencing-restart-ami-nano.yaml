@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-ai-att-fe-inferencing-restart
+  name: at-ai-aer-fe-inferencing-restart-ami-nano
   namespace: advtech
 spec:
   timeZone: "EST"
