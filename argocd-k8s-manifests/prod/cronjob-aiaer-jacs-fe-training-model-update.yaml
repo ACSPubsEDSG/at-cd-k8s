@@ -4,6 +4,7 @@ metadata:
   name: at-ai-aer-jacs-fe-training-model-update
   namespace: advtech
 spec:
+  timeZone: "EST"
   schedule: "0 11 * * 6"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
