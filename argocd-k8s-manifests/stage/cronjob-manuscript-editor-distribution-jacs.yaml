@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: at-manuscript-editor-distribution-jacs
+  namespace: advtech
+spec:
+  schedule: "0/2 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 900
+      template:
+        spec:
+          containers:
+          - name: at-manuscript-editor-distribution-jacs
+            image: ghcr.io/acspubsedsg/at-manuscript-editor-distribution:latest
+            imagePullPolicy: Always
+            env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+            - name: JACS_PROCESS_ENABLED
+              value: "yes"
+            resources:
+              requests:
+                cpu: 1000m
+                memory: 2048Mi
+              limits:
+                cpu: 1500m
+                memory: 3072Mi
+            volumeMounts:
+            - mountPath: /appl/iapps/config/
+              name: secret-server-configmap
+          volumes:
+            - name: secret-server-configmap
+              configMap:
+                name: secret-server-configmap
+          imagePullSecrets:
+            - name: ghcr-token-github-com
+          restartPolicy: OnFailure
