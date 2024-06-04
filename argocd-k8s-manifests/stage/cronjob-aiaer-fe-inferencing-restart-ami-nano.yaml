@@ -29,6 +29,6 @@ spec:
                   kubectl rollout restart deployment/at-ai-aer-nano-fe-inferencing-ee &&
                   kubectl rollout status deployment/at-ai-aer-nano-fe-inferencing-ee &&
                   kubectl rollout restart deployment/at-ai-aer-ami-fe-inferencing-ae &&
-                  kubectl rollout status deployment/aat-ai-aer-ami-fe-inferencing-ae &&
+                  kubectl rollout status deployment/at-ai-aer-ami-fe-inferencing-ae &&
                   kubectl rollout restart deployment/at-ai-aer-ami-fe-inferencing-ee &&
                   kubectl rollout status deployment/at-ai-aer-ami-fe-inferencing-ee
