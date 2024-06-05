@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-ai-aer-ol-fe-inferencing-ae
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-ai-aer-ol-fe-inferencing-ae
+  template:
+    metadata:
+      labels:
+        app: at-ai-aer-ol-fe-inferencing-ae
+    spec:
+      containers:
+        - name: at-ai-aer-ol-fe-inferencing-ae
+          image: ghcr.io/acspubsedsg/at-ai-aer-ol-inferencing:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5012
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2048Mi
+            limits:
+              cpu: 1500m
+              memory: 3072Mi
+          command:  
+          - /bin/sh
+          - -c
+          - mv aiaer_ol_stag.ini aiaer_ol.ini && conda run --name aiaer_scibert python ol_predict_ae_api.py
+          volumeMounts:
+            - name: filestore
+              mountPath: /NAS
+      imagePullSecrets:
+        - name: ghcr-token-github-com
+      volumes:
+        - name: filestore
+          persistentVolumeClaim:
+            claimName: filestore-nfs-pvc
+            readOnly: false
