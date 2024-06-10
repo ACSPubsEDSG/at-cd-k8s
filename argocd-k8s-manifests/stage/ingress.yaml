@@ -6,9 +6,9 @@ metadata:
   annotations:
     ingress.gcp.kubernetes.io/pre-shared-cert: "at-ai-tool-dashboard-ssl-cert-stage"
     kubernetes.io/ingress.class: "gce-internal"
-    kubernetes.io/ingress.regional-static-ip-name: "at-ai-tool-dashboard-static-ip-stage"
+    kubernetes.io/ingress.regional-static-ip-name: "at-ai-tool-ingress-static-ip-stage"
     networking.gke.io/suppress-firewall-xpn-error: "true"
-    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.allow-http: "true"
 spec:
   rules:
     - http:
