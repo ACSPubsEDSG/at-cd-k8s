@@ -33,10 +33,10 @@ spec:
             - -c
             - mv aiaer_ol_prod.ini aiaer_ol.ini && sh acs_bert_ae.sh
             volumeMounts:
-            - name: filestore 
+            - name: filestore
               mountPath: /NAS
             - mountPath: /usr/local/nvidia
-              name: nvidia            
+              name: nvidia
           tolerations:
           - key: nvidia.com/gpu
             operator: Exists
