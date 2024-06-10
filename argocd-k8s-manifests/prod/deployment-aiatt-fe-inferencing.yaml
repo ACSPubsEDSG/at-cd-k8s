@@ -24,6 +24,9 @@ spec:
         imagePullPolicy: Always
         ports:
           - containerPort: 5002
+        env:
+          - name: TZ
+            value: EST
         resources:
           requests:
             cpu: 1000m
