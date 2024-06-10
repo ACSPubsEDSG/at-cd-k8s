@@ -4,7 +4,7 @@ metadata:
   name: at-ai-aer-ol-fe-training-acs-bert-ae
   namespace: advtech
 spec:
-  schedule: "0 7 * * 6"
+  schedule: "20 16 * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
