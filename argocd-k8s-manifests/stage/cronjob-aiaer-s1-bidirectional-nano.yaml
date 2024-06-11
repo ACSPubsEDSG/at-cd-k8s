@@ -20,8 +20,8 @@ spec:
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
-            - name: NANO_PROCESS_ENABLED
-              value: "yes"
+            - name: s1.bidirectional.process.journalId
+              value: "nn"
             resources:
               requests:
                 cpu: 1000m

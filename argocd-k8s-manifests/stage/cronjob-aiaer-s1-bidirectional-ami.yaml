@@ -17,8 +17,10 @@ spec:
             image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-ami:latest
             imagePullPolicy: Always
             env:
-              - name: SPRING_PROFILES_ACTIVE
-                value: test
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+            - name: s1.bidirectional.process.journalId
+              value: "am"
             resources:
               requests:
                 cpu: 1000m
