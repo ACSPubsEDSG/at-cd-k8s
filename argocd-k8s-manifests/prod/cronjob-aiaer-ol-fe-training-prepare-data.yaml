@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
           - name: at-ai-aer-ol-fe-training-prepare-data
-            image: ghcr.io/acspubsedsg/at-ai-aer-ol-fe-training:latest
+            image: ghcr.io/acspubsedsg/at-ai-aer-ol-fe-training:prod
             imagePullPolicy: Always
             resources:
               requests:
@@ -36,7 +36,7 @@ spec:
               && mkdir -p /NAS/AIMODELS/aiaer-ol/tmp_model/ee/bert_output_model
               && mkdir -p /NAS/AIMODELS/aiaer-ol/model/ae/bert_output_model
               && mkdir -p /NAS/AIMODELS/aiaer-ol/model/ae/predict_output
-              && mv aiaer_ol_stag.ini aiaer_ol.ini && sh aiaer_ol_prepare_data.sh
+              && mv aiaer_ol_prod.ini aiaer_ol.ini && sh aiaer_ol_prepare_data.sh
             volumeMounts:
             - name: filestore 
               mountPath: /NAS

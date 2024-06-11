@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: at-ai-aer-nano-fe-inferencing-ae
+  name: at-ai-aer-ol-fe-inferencing-ae
   namespace: advtech
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: at-ai-aer-nano-fe-inferencing-ae
+      app: at-ai-aer-ol-fe-inferencing-ae
   template:
     metadata:
       labels:
-        app: at-ai-aer-nano-fe-inferencing-ae
+        app: at-ai-aer-ol-fe-inferencing-ae
     spec:
       containers:
-        - name: at-ai-aer-nano-fe-inferencing-ae
-          image: ghcr.io/acspubsedsg/at-ai-aer-nano-fe-inferencing:prod
+        - name: at-ai-aer-ol-fe-inferencing-ae
+          image: ghcr.io/acspubsedsg/at-ai-aer-ol-inferencing:prod
           imagePullPolicy: Always
           ports:
-            - containerPort: 5010
+            - containerPort: 5012
           env:
             - name: TZ
               value: EST
@@ -32,7 +32,7 @@ spec:
           command:  
           - /bin/sh
           - -c
-          - mv nano_prod_db.ini nano_db.ini && conda run --name aiaer_scibert python nano_predict_ae_api.py
+          - mv aiaer_ol_prod.ini aiaer_ol.ini && conda run --name aiaer_scibert python ol_predict_ae_api.py
           volumeMounts:
             - name: filestore
               mountPath: /NAS

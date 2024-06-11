@@ -20,6 +20,8 @@ spec:
           env:
           - name: LD_LIBRARY_PATH
             value: /usr/local/nvidia/lib64
+          - name: TZ
+            value: EST
           ports:
             - containerPort: 5003
           resources:
