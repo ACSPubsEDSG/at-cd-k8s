@@ -19,7 +19,7 @@ spec:
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
-            - name: s1.bidirectional.preprocess.process-type
+            - name: S1_BIDIRECTIONAL_PREPROCESS_PROCESS-TYPE
               value: "MONITOR_QUEUE"
             resources:
               requests:

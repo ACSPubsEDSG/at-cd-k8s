@@ -19,7 +19,7 @@ spec:
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
-            - name: s1.bidirectional.process.journalId
+            - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
               value: "am"
             resources:
               requests:
