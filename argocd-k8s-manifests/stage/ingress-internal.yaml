@@ -4,14 +4,11 @@ metadata:
   name: at-ai-tool-dashboard-ingress-internal-aiatt
   namespace: advtech
   annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: "gce-internal"
     kubernetes.io/ingress.regional-static-ip-name: "at-ai-tool-dashboard-static-ip-stage"
     networking.gke.io/suppress-firewall-xpn-error: "true"
     kubernetes.io/ingress.allow-http: "true"
 spec:
-  ingressClassName: nginx
   rules:
     - http:
         paths:
