@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-manuscript-editor-distribution-nano
+  name: at-aiaer-s1-bidirectional-jacs
   namespace: advtech
 spec:
   schedule: "* * * * *"
@@ -14,14 +14,14 @@ spec:
       template:
         spec:
           containers:
-          - name: at-manuscript-editor-distribution-nano
-            image: ghcr.io/acspubsedsg/at-manuscript-editor-distribution:latest
+          - name: at-aiaer-s1-bidirectional-jacs
+            image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:latest
             imagePullPolicy: Always
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
-            - name: NANO_PROCESS_ENABLED
-              value: "yes"
+            - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
+              value: "jj"
             resources:
               requests:
                 cpu: 1000m

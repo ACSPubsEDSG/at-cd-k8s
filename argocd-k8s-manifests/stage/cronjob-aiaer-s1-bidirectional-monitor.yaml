@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-manuscript-editor-distribution-nano
+  name: at-aiaer-s1-bidirectional-monitor
   namespace: advtech
 spec:
   schedule: "* * * * *"
@@ -10,18 +10,17 @@ spec:
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 900
       template:
         spec:
           containers:
-          - name: at-manuscript-editor-distribution-nano
-            image: ghcr.io/acspubsedsg/at-manuscript-editor-distribution:latest
+          - name: at-aiaer-s1-bidirectional-monitor
+            image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-monitor:latest
             imagePullPolicy: Always
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
-            - name: NANO_PROCESS_ENABLED
-              value: "yes"
+            - name: S1_BIDIRECTIONAL_PREPROCESS_PROCESS-TYPE
+              value: "MONITOR_QUEUE"
             resources:
               requests:
                 cpu: 1000m
@@ -30,8 +29,8 @@ spec:
                 cpu: 1000m
                 memory: 2048Mi
             volumeMounts:
-            - mountPath: /appl/iapps/config/
-              name: secret-server-configmap
+              - mountPath: /appl/iapps/config/
+                name: secret-server-configmap
           volumes:
             - name: secret-server-configmap
               configMap:

@@ -24,8 +24,8 @@ spec:
                 cpu: 1000m
                 memory: 2048Mi
               limits:
-                cpu: 1500m
-                memory: 3072Mi
+                cpu: 1000m
+                memory: 2048Mi
             volumeMounts:
               - mountPath: /appl/iapps/config/
                 name: secret-server-configmap

@@ -17,15 +17,17 @@ spec:
             image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-ami:latest
             imagePullPolicy: Always
             env:
-              - name: SPRING_PROFILES_ACTIVE
-                value: test
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+            - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
+              value: "am"
             resources:
               requests:
                 cpu: 1000m
                 memory: 2048Mi
               limits:
-                cpu: 1500m
-                memory: 3072Mi
+                cpu: 1000m
+                memory: 2048Mi
             volumeMounts:
               - mountPath: /appl/iapps/config/
                 name: secret-server-configmap
