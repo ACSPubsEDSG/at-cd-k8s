@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: at-aiaer-s1-bidirectional-monitor
+  namespace: advtech
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: at-aiaer-s1-bidirectional-monitor
+            image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-monitor:latest
+            imagePullPolicy: Always
+            env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+            - name: s1.bidirectional.preprocess.process-type
+              value: "MONITOR_QUEUE"
+            resources:
+              requests:
+                cpu: 1000m
+                memory: 2048Mi
+              limits:
+                cpu: 1000m
+                memory: 2048Mi
+            volumeMounts:
+              - mountPath: /appl/iapps/config/
+                name: secret-server-configmap
+          volumes:
+            - name: secret-server-configmap
+              configMap:
+                name: secret-server-configmap
+          imagePullSecrets:
+            - name: ghcr-token-github-com
+          restartPolicy: OnFailure
