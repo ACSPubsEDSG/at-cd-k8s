@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: "gce-internal"
     kubernetes.io/ingress.regional-static-ip-name: "at-ai-tool-dashboard-static-ip-stage"
     networking.gke.io/suppress-firewall-xpn-error: "true"
-    kubernetes.io/ingress.allow-http: "true"
+    kubernetes.io/ingress.allow-http: "false"
 spec:
   rules:
     - http:
@@ -46,13 +46,6 @@ spec:
             backend:
              service:
                 name: at-ai-aer-fe-ui
-                port:
-                  number: 8080
-          - path: /api/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-att-fe-api
                 port:
                   number: 8080
   defaultBackend:
