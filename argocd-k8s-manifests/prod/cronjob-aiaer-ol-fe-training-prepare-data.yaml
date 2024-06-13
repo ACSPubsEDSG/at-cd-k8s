@@ -4,7 +4,8 @@ metadata:
   name: at-ai-aer-ol-fe-training-prepare-data
   namespace: advtech
 spec:
-  schedule: "0 4 * * 6"
+  timeZone: "EST"
+  schedule: "*/2 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
