@@ -5,12 +5,12 @@ metadata:
   namespace: advtech
 spec:
   schedule: "* * * * *"
-  concurrencyPolicy: Replace
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 900
+      # activeDeadlineSeconds: 900
       template:
         spec:
           containers:
