@@ -10,7 +10,7 @@ spec:
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
-      # activeDeadlineSeconds: 900
+      activeDeadlineSeconds: 900
       template:
         spec:
           containers:
