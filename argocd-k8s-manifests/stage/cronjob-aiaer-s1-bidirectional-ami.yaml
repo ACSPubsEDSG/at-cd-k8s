@@ -22,6 +22,8 @@ spec:
               value: test
             - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
               value: "am"
+            - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP-INFINITE-EXECUTION
+              value: "true"
             resources:
               requests:
                 cpu: 1000m
