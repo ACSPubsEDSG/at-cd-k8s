@@ -10,6 +10,7 @@ spec:
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
+      activeDeadlineSeconds: 900
       template:
         spec:
           containers:
@@ -21,6 +22,8 @@ spec:
               value: test
             - name: S1_BIDIRECTIONAL_PREPROCESS_PROCESS-TYPE
               value: "MONITOR_QUEUE"
+            - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP-INFINITE-EXECUTION
+              value: "true"
             resources:
               requests:
                 cpu: 1000m
