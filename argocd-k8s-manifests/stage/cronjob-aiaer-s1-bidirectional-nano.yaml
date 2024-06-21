@@ -10,13 +10,13 @@ spec:
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 900
+      activeDeadlineSeconds: 600
       template:
         spec:
           containers:
           - name: at-aiaer-s1-bidirectional-nano
             image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:latest
-            imagePullPolicy: Always
+            imagePullPolicy: IfNotPresent
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
@@ -26,7 +26,7 @@ spec:
               value: "true"
             resources:
               requests:
-                cpu: 1000m
+                cpu: 500m
                 memory: 2048Mi
               limits:
                 cpu: 1000m
