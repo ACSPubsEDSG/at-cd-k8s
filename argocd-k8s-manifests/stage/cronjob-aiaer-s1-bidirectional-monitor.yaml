@@ -20,7 +20,7 @@ spec:
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
-            - name: S1_BIDIRECTIONAL_PREPROCESS_PROCESS-TYPE
+            - name: S1_BIDIRECTIONAL_PREPROCESS_PROCESSTYPE
               value: "MONITOR_QUEUE"
             - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP-INFINITE-EXECUTION
               value: "true"
