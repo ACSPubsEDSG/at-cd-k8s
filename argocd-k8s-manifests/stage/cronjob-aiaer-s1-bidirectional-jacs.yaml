@@ -21,7 +21,7 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: test
             - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
-              value: "jj"
+              value: "ja"
             - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP-INFINITE-EXECUTION
               value: "true"
             resources:
