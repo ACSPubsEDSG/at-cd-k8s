@@ -34,6 +34,8 @@ spec:
             volumeMounts:
             - mountPath: /appl/iapps/config/
               name: secret-server-configmap
+            command: ["/bin/sh", "-c"]
+            args: ["while true; do echo 'Running task'; sleep 20; done"]
           volumes:
             - name: secret-server-configmap
               configMap:
