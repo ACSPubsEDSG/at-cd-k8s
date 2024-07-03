@@ -10,12 +10,12 @@ spec:
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 600
+      activeDeadlineSeconds: 900
       template:
         spec:
           containers:
           - name: at-aiaer-s1-bidirectional-jacs
-            image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:latest
+            image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:jacs
             imagePullPolicy: Always
             env:
             - name: SPRING_PROFILES_ACTIVE
