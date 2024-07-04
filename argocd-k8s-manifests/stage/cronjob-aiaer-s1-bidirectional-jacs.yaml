@@ -22,7 +22,7 @@ spec:
               value: test
             - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
               value: "ja"
-            - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP-INFINITE-EXECUTION
+            - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP_INFINITE_EXECUTION
               value: "true"
             resources:
               requests:
