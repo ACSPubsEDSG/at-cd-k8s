@@ -16,7 +16,7 @@ spec:
           containers:
           - name: at-aiaer-s1-bidirectional-nano
             image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:latest
-            imagePullPolicy: IfNotPresent
+            imagePullPolicy: Always
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
