@@ -54,7 +54,7 @@ spec:
               service:
                 name: at-ai-mta-fe-api
                 port:
-                  number: 5002
+                  number: 8080
   defaultBackend:
     service:
       name: at-ai-tool-dashboard
