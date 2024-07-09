@@ -18,7 +18,7 @@ spec:
         image: ghcr.io/acspubsedsg/at-ai-att-fe-inferencing:latest
         imagePullPolicy: Always
         ports:
-          - containerPort: 5002
+          - containerPort: 8080
         resources:
           requests:
             cpu: 1000m
@@ -31,17 +31,17 @@ spec:
           periodSeconds: 5
           httpGet:
             path: /manuscripttransfer-cnn/HealthMonitor
-            port: 5002
+            port: 8080
         readinessProbe:
           initialDelaySeconds: 30
           periodSeconds: 5
           httpGet:
             path: /manuscripttransfer-cnn/HealthMonitor
-            port: 5002
+            port: 8080
         command:
         - /bin/sh
         - -c
-        - mv config/manuscript-transfer-cnn_staging.ini config/manuscript-transfer-cnn.ini && gunicorn -w 4 -t 300 -b 0.0.0.0:5002 -p manuscript-transfer-cnn.pid predict:app
+        - mv config/manuscript-transfer-cnn_staging.ini config/manuscript-transfer-cnn.ini && gunicorn -w 4 -t 300 -b 0.0.0.0:8080 -p manuscript-transfer-cnn.pid predict:app
         volumeMounts:
         - name: filestore
           mountPath: /NAS
