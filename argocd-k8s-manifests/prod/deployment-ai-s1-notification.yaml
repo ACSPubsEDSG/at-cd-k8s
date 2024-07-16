@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-ai-s1-notification
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-ai-s1-notification
+  template:
+    metadata:
+      labels:
+        app: at-ai-s1-notification
+    spec:
+      containers:
+      - name: at-ai-s1-notification
+        image: ghcr.io/acspubsedsg/at-ai-s1-notification:prod
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: prod
+        - name: TZ
+          value: EST
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+        # volumeMounts:
+        # - mountPath: /appl/iapps/ssoProperties/
+        #   name: at-ai-s1-notification-config-volume
+      # hostAliases:
+      #   - hostnames:
+      #       - "sso.acs.org"
+      #     ip: "45.60.77.135"
+      # volumes:
+      #   - name: at-ai-s1-notification-config-volume
+      #     configMap:
+      #       name: at-ai-s1-notification-configmap
+      imagePullSecrets:
+        - name: ghcr-token-github-com
