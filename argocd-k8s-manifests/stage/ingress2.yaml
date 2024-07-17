@@ -39,7 +39,7 @@ spec:
                 name: at-aiaer-admin-ui
                 port:
                   number: 8080
-          - path: /api/*
+          - path: /transfer/*
             pathType: ImplementationSpecific
             backend:
               service:
