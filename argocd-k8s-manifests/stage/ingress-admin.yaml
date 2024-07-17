@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: at-ai-tool-dashboard-ingress
+  name: at-ai-admin-tool-dashboard-ingress
   namespace: advtech
   annotations:
     kubernetes.io/ingress.class: "gce-internal"
