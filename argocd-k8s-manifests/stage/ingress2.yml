@@ -1,0 +1,53 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: at-ai-tool-dashboard-ingress
+  namespace: advtech
+  annotations:
+    kubernetes.io/ingress.class: "gce-internal"
+    networking.gke.io/suppress-firewall-xpn-error: "true"
+    kubernetes.io/ingress.allow-http: "true"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /Dashboard/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-admin-tool-dashboard
+                port:
+                  number: 8080
+          - path: /reviewers/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-arr-admin
+                port:
+                  number: 8080
+          - path: /originality/*
+            pathType: ImplementationSpecific
+            backend:
+             service:
+                name: at-ai-aoe-admin
+                port:
+                  number: 8080
+          - path: /editors/*
+            pathType: ImplementationSpecific
+            backend:
+             service:
+                name: at-aiaer-admin-ui
+                port:
+                  number: 8080
+          - path: /api/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-att-admin
+                port:
+                  number: 8080
+  defaultBackend:
+    service:
+      name: at-ai-admin-tool-dashboard
+      port:
+        number: 8080
