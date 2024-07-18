@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-ai-arr-admin
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-ai-arr-admin
+  template:
+    metadata:
+      labels:
+        app: at-ai-arr-admin
+    spec:
+      containers:
+      - name: at-ai-arr-admin
+        image: ghcr.io/acspubsedsg/at-ai-arr-admin:prod
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: prod
+        - name: TZ
+          value: EST
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+        # volumeMounts:
+        # - mountPath: /appl/iapps/ssoProperties/
+        #   name: at-ai-arr-admin-config-volume
+      # hostAliases:
+      #   - hostnames:
+      #       - "sso.acs.org"
+      #     ip: "45.60.77.135"
+      # volumes:
+      #   - name: at-ai-arr-admin-config-volume
+      #     configMap:
+      #       name: at-ai-arr-admin-configmap
+      imagePullSecrets:
+        - name: ghcr-token-github-com
