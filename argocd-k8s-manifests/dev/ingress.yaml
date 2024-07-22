@@ -55,6 +55,13 @@ spec:
                 name: at-ai-mta-fe-api
                 port:
                   number: 8080
+          - path: /mta-ui/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-mta-fe-ui
+                port:
+                  number: 8080
   defaultBackend:
     service:
       name: at-ai-tool-dashboard
