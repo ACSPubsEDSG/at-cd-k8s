@@ -55,7 +55,7 @@ spec:
                 name: at-ai-mta-fe-api
                 port:
                   number: 8080
-          - path: /mta-ui/*
+          - path: /topicanalyzer/*
             pathType: ImplementationSpecific
             backend:
               service:
