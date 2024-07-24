@@ -62,6 +62,13 @@ spec:
                 name: at-ai-att-fe-inferencing
                 port:
                   number: 8080
+          - path: /ai-monitors/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-resource-monitor
+                port:
+                  number: 8080
   defaultBackend:
     service:
       name: at-ai-tool-dashboard
