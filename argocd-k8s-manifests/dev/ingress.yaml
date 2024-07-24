@@ -13,41 +13,6 @@ spec:
   rules:
     - http:
         paths:
-#          - path: /Dashboard/*
-#            pathType: ImplementationSpecific
-#            backend:
-#              service:
-#                name: at-ai-tool-dashboard
-#                port:
-#                  number: 8080
-#          - path: /transfer/*
-#            pathType: ImplementationSpecific
-#            backend:
-#              service:
-#                name: at-ai-att-fe-ui
-#                port:
-#                  number: 8080
-#          - path: /reviewers/*
-#            pathType: ImplementationSpecific
-#            backend:
-#              service:
-#                name: at-ai-arr-fe-ui
-#                port:
-#                  number: 8080
-#          - path: /editors/*
-#            pathType: ImplementationSpecific
-#            backend:
-#              service:
-#                name: at-ai-aer-fe-ui
-#                port:
-#                  number: 8080
-#          - path: /originality/*
-#            pathType: ImplementationSpecific
-#            backend:
-#              service:
-#                name: at-ai-aoe-fe-ui
-#                port:
-#                  number: 8080
           - path: /mta_api/v1/*
             pathType: ImplementationSpecific
             backend:
@@ -55,7 +20,7 @@ spec:
                 name: at-ai-mta-fe-api
                 port:
                   number: 8080
-          - path: /topicanalyzer/*
+          - path: /*
             pathType: ImplementationSpecific
             backend:
               service:
