@@ -20,13 +20,6 @@ spec:
                 name: at-ai-mta-fe-api
                 port:
                   number: 8080
-          - path: /topicanalyzer/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-mta-fe-ui
-                port:
-                  number: 8080
           - path: /topicanalyzer/home
             pathType: Exact
             backend:
@@ -39,6 +32,13 @@ spec:
             backend:
               service:
                 name: at-ai-mta-authentication-fe-ui
+                port:
+                  number: 8080
+          - path: /topicanalyzer/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-mta-fe-ui
                 port:
                   number: 8080
   defaultBackend:
