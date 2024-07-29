@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: at-aiaer-admin-ui
+  namespace: advtech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: at-aiaer-admin-ui
+  template:
+    metadata:
+      labels:
+        app: at-aiaer-admin-ui
+    spec:
+      containers:
+      - name: at-aiaer-admin-ui
+        image: ghcr.io/acspubsedsg/at-aiaer-admin-ui:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: prod
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 2048Mi
+          limits:
+            cpu: 1500m 
+            memory: 3072Mi
+        volumeMounts:
+        - mountPath: /appl/iapps/ssoProperties/
+          name: at-aiaer-admin-ui-config-volume
+      hostAliases:
+        - hostnames:
+            - "ssotest.acs.org"
+          ip: "45.60.77.135"
+      volumes:
+        - name: at-aiaer-admin-ui-config-volume
+          configMap:
+            name: at-aiaer-admin-ui-configmap
+      imagePullSecrets:
+        - name: ghcr-token-github-com
