@@ -4,7 +4,7 @@ metadata:
   name: at-ai-tool-dashboard-ingress
   namespace: advtech
   annotations:
-    ingress.gcp.kubernetes.io/pre-shared-cert: "javiasdev-gcp-acs-org"
+    ingress.gcp.kubernetes.io/pre-shared-cert: "at-ai-tool-dashboard-ssl-cert-dev"
     kubernetes.io/ingress.class: "gce-internal"
     kubernetes.io/ingress.regional-static-ip-name: "at-ai-tool-dashboard-static-ip-dev"
     networking.gke.io/suppress-firewall-xpn-error: "true"
@@ -20,11 +20,25 @@ spec:
                 name: at-ai-mta-fe-api
                 port:
                   number: 8080
-          - path: /*
+          - path: /topicanalyzer/*
             pathType: ImplementationSpecific
             backend:
               service:
                 name: at-ai-mta-fe-ui
+                port:
+                  number: 8080
+          - path: /topicanalyzer/home
+            pathType: Exact
+            backend:
+              service:
+                name: at-ai-mta-authentication-fe-ui
+                port:
+                  number: 8080
+          - path: /topicanalyzer/logout
+            pathType: Exact
+            backend:
+              service:
+                name: at-ai-mta-authentication-fe-ui
                 port:
                   number: 8080
   defaultBackend:
