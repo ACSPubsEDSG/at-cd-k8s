@@ -69,6 +69,20 @@ spec:
                 name: at-resource-monitor
                 port:
                   number: 8080
+          - path: /mta_api/v1/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-mta-fe-api
+                port:
+                  number: 8080
+          - path: /topicanalyzer/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-mta-fe-ui
+                port:
+                  number: 8080
   defaultBackend:
     service:
       name: at-ai-tool-dashboard
