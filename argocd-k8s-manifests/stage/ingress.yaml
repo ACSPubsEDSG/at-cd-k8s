@@ -13,55 +13,55 @@ spec:
   rules:
     - http:
         paths:
-          - path: /Dashboard/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-tool-dashboard
-                port:
-                  number: 8080
-          - path: /transfer/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-att-fe-ui
-                port:
-                  number: 8080
-          - path: /reviewers/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-arr-fe-ui
-                port:
-                  number: 8080
-          - path: /originality/*
-            pathType: ImplementationSpecific
-            backend:
-             service:
-                name: at-ai-aoe-fe-ui
-                port:
-                  number: 8080
-          - path: /editors/*
-            pathType: ImplementationSpecific
-            backend:
-             service:
-                name: at-ai-aer-fe-ui
-                port:
-                  number: 8080
-          - path: /manuscripttransfer-cnn/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-ai-att-fe-inferencing
-                port:
-                  number: 8080
-          - path: /ai-monitors/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: at-resource-monitor
-                port:
-                  number: 8080
+#          - path: /Dashboard/*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: at-ai-tool-dashboard
+#                port:
+#                  number: 8080
+#          - path: /transfer/*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: at-ai-att-fe-ui
+#                port:
+#                  number: 8080
+#          - path: /reviewers/*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: at-ai-arr-fe-ui
+#                port:
+#                  number: 8080
+#          - path: /originality/*
+#            pathType: ImplementationSpecific
+#            backend:
+#             service:
+#                name: at-ai-aoe-fe-ui
+#                port:
+#                  number: 8080
+#          - path: /editors/*
+#            pathType: ImplementationSpecific
+#            backend:
+#             service:
+#                name: at-ai-aer-fe-ui
+#                port:
+#                  number: 8080
+#          - path: /manuscripttransfer-cnn/*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: at-ai-att-fe-inferencing
+#                port:
+#                  number: 8080
+#          - path: /ai-monitors/*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: at-resource-monitor
+#                port:
+#                  number: 8080
           - path: /mta_api/v1/*
             pathType: ImplementationSpecific
             backend:
@@ -78,6 +78,6 @@ spec:
                   number: 8080
   defaultBackend:
     service:
-      name: at-ai-tool-dashboard
+      name: at-ai-mta-fe-ui
       port:
         number: 8080
