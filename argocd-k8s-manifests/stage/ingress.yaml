@@ -78,6 +78,6 @@ spec:
                   number: 8080
   defaultBackend:
     service:
-      name: at-ai-tool-dashboard
+      name: at-ai-mta-fe-ui
       port:
         number: 8080
