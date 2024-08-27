@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: release/OL_AutoAssignment_Prod_Release
+  namespace: advtech
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 900
+      template:
+        spec:
+          containers:
+          - name: release/OL_AutoAssignment_Prod_Release
+            image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:test
+            imagePullPolicy: Always
+            env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+            resources:
+              requests:
+                cpu: 1000m
+                memory: 2048Mi
+              limits:
+                cpu: 1000m
+                memory: 2048Mi
+            volumeMounts:
+            - mountPath: /appl/iapps/config/
+              name: secret-server-configmap
+          volumes:
+            - name: secret-server-configmap
+              configMap:
+                name: secret-server-configmap
+          imagePullSecrets:
+            - name: ghcr-token-github-com
+          restartPolicy: OnFailure
