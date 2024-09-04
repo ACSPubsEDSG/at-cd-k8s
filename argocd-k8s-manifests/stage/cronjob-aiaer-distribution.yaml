@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: at-aiaer-distribution
+  name: at-aiaer-distribution-ol
   namespace: advtech
 spec:
   schedule: "* * * * *"
@@ -14,7 +14,7 @@ spec:
       template:
         spec:
           containers:
-          - name: at-aiaer-distribution
+          - name: at-aiaer-distribution-ol
             image: ghcr.io/acspubsedsg/at-aiaer-distribution:latest
             imagePullPolicy: Always
             env:
