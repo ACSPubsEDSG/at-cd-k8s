@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: release/OL_AutoAssignment_Prod_Release
+  name: at-aiaer-s1-bidirectional-ol
   namespace: advtech
 spec:
   schedule: "* * * * *"
@@ -14,7 +14,7 @@ spec:
       template:
         spec:
           containers:
-          - name: release/OL_AutoAssignment_Prod_Release
+          - name: at-aiaer-s1-bidirectional-ol
             image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional:test
             imagePullPolicy: Always
             env:
