@@ -20,6 +20,8 @@ spec:
             env:
             - name: SPRING_PROFILES_ACTIVE
               value: test
+            - name: TZ
+              value: EST
             - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
               value: "nn"
             - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP_INFINITE_EXECUTION
