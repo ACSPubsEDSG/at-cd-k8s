@@ -1,19 +1,19 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: at-ai-aer-ami-fe-inferencing-ee
-  namespace: advtech
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
-  labels:
-    app: at-ai-aer-ami-fe-inferencing-ee
-spec:
-  type: ClusterIP
-  ports:
-    - port: 5009
-      targetPort: 5009
-      protocol: TCP
-      name: http
-  selector:
-    app: at-ai-aer-ami-fe-inferencing-ee
-    
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: at-ai-aer-ami-fe-inferencing-ee
+#  namespace: advtech
+#  annotations:
+#    cloud.google.com/neg: '{"ingress": true}'
+#  labels:
+#    app: at-ai-aer-ami-fe-inferencing-ee
+#spec:
+#  type: ClusterIP
+#  ports:
+#    - port: 5009
+#      targetPort: 5009
+#      protocol: TCP
+#      name: http
+#  selector:
+#    app: at-ai-aer-ami-fe-inferencing-ee
+#

@@ -1,19 +1,19 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: at-ai-specter-init-embed
-  namespace: advtech
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
-  labels:
-    app: at-ai-specter-init-embed
-spec:
-  type: ClusterIP
-  ports:
-    - port: 5005
-      targetPort: 5005
-      protocol: TCP
-      name: http
-  selector:
-    app: at-ai-specter-init-embed
-    
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: at-ai-specter-init-embed
+#  namespace: advtech
+#  annotations:
+#    cloud.google.com/neg: '{"ingress": true}'
+#  labels:
+#    app: at-ai-specter-init-embed
+#spec:
+#  type: ClusterIP
+#  ports:
+#    - port: 5005
+#      targetPort: 5005
+#      protocol: TCP
+#      name: http
+#  selector:
+#    app: at-ai-specter-init-embed
+#

@@ -1,40 +1,40 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: at-resource-monitor
-  namespace: advtech
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: at-resource-monitor
-  template:
-    metadata:
-      labels:
-        app: at-resource-monitor
-    spec:
-      containers:
-      - name: at-resource-monitor
-        image: ghcr.io/acspubsedsg/at-resource-monitor:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: dev
-        resources:
-          requests:
-            cpu: 1000m 
-            memory: 2048Mi
-          limits:
-            cpu: 1500m 
-            memory: 3072Mi
-      #   volumeMounts:
-      #   - mountPath: /appl/iapps/ssoProperties/
-      #     name: at-resource-monitor-config-volume
-      # volumes:
-      #   - name: at-resource-monitor-config-volume
-      #     configMap:
-      #       name: at-resource-monitor-configmap
-      imagePullSecrets:
-        - name: ghcr-token-github-com  
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: at-resource-monitor
+#  namespace: advtech
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: at-resource-monitor
+#  template:
+#    metadata:
+#      labels:
+#        app: at-resource-monitor
+#    spec:
+#      containers:
+#      - name: at-resource-monitor
+#        image: ghcr.io/acspubsedsg/at-resource-monitor:latest
+#        imagePullPolicy: Always
+#        ports:
+#        - containerPort: 8080
+#        env:
+#        - name: SPRING_PROFILES_ACTIVE
+#          value: dev
+#        resources:
+#          requests:
+#            cpu: 1000m
+#            memory: 2048Mi
+#          limits:
+#            cpu: 1500m
+#            memory: 3072Mi
+#      #   volumeMounts:
+#      #   - mountPath: /appl/iapps/ssoProperties/
+#      #     name: at-resource-monitor-config-volume
+#      # volumes:
+#      #   - name: at-resource-monitor-config-volume
+#      #     configMap:
+#      #       name: at-resource-monitor-configmap
+#      imagePullSecrets:
+#        - name: ghcr-token-github-com

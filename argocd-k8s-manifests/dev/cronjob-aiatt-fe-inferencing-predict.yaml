@@ -1,27 +1,27 @@
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: at-ai-att-fe-inferencing-restart
-  namespace: advtech
-spec:
-  schedule: "0 07 * * *"
-  concurrencyPolicy: Forbid
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 1
-  jobTemplate:
-    spec:
-      backoffLimit: 2
-      activeDeadlineSeconds: 600
-      template:
-        spec:
-          serviceAccountName: restart-deployment
-          restartPolicy: Never
-          containers:
-          - name: kubectl
-            image: bitnami/kubectl
-            command:
-            - bash
-            - -c
-            - >-
-              kubectl rollout restart deployment/at-ai-att-fe-inferencing &&
-              kubectl rollout status deployment/at-ai-att-fe-inferencing
+#apiVersion: batch/v1
+#kind: CronJob
+#metadata:
+#  name: at-ai-att-fe-inferencing-restart
+#  namespace: advtech
+#spec:
+#  schedule: "0 07 * * *"
+#  concurrencyPolicy: Forbid
+#  successfulJobsHistoryLimit: 1
+#  failedJobsHistoryLimit: 1
+#  jobTemplate:
+#    spec:
+#      backoffLimit: 2
+#      activeDeadlineSeconds: 600
+#      template:
+#        spec:
+#          serviceAccountName: restart-deployment
+#          restartPolicy: Never
+#          containers:
+#          - name: kubectl
+#            image: bitnami/kubectl
+#            command:
+#            - bash
+#            - -c
+#            - >-
+#              kubectl rollout restart deployment/at-ai-att-fe-inferencing &&
+#              kubectl rollout status deployment/at-ai-att-fe-inferencing

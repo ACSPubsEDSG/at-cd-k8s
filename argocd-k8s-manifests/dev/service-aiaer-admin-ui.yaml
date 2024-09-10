@@ -1,19 +1,19 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: at-ai-aer-admin-ui
-  namespace: advtech
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
-  labels:
-    app: at-ai-aer-admin-ui
-spec:
-  type: ClusterIP
-  ports:
-    - port: 8080
-      targetPort: 8080
-      protocol: TCP
-      name: http
-  selector:
-    app: at-ai-aer-admin-ui
-    
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: at-ai-aer-admin-ui
+#  namespace: advtech
+#  annotations:
+#    cloud.google.com/neg: '{"ingress": true}'
+#  labels:
+#    app: at-ai-aer-admin-ui
+#spec:
+#  type: ClusterIP
+#  ports:
+#    - port: 8080
+#      targetPort: 8080
+#      protocol: TCP
+#      name: http
+#  selector:
+#    app: at-ai-aer-admin-ui
+#
