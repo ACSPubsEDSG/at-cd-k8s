@@ -1,34 +1,34 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: at-ai-att-fe-api
-  namespace: advtech
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: at-ai-att-fe-api
-  template:
-    metadata:
-      labels:
-        app: at-ai-att-fe-api
-    spec:
-      containers:
-      - name: at-ai-att-fe-api
-        image: ghcr.io/acspubsedsg/at-ai-att-fe-api:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: test
-        resources:
-          requests:
-            cpu: 1000m 
-            memory: 2048Mi
-          limits:
-            cpu: 1500m 
-            memory: 3072Mi
-      imagePullSecrets:
-        - name: ghcr-token-github-com
-      restartPolicy: Always
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: at-ai-att-fe-api
+#   namespace: advtech
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: at-ai-att-fe-api
+#   template:
+#     metadata:
+#       labels:
+#         app: at-ai-att-fe-api
+#     spec:
+#       containers:
+#       - name: at-ai-att-fe-api
+#         image: ghcr.io/acspubsedsg/at-ai-att-fe-api:latest
+#         imagePullPolicy: Always
+#         ports:
+#         - containerPort: 8080
+#         env:
+#         - name: SPRING_PROFILES_ACTIVE
+#           value: test
+#         resources:
+#           requests:
+#             cpu: 1000m 
+#             memory: 2048Mi
+#           limits:
+#             cpu: 1500m 
+#             memory: 3072Mi
+#       imagePullSecrets:
+#         - name: ghcr-token-github-com
+#       restartPolicy: Always
