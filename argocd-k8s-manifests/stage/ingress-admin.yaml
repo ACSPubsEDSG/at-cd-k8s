@@ -11,6 +11,13 @@ spec:
   rules:
     - http:
         paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: at-ai-admin-tool-dashboard
+                port:
+                  number: 8080
           - path: /Dashboard/*
             pathType: ImplementationSpecific
             backend:
