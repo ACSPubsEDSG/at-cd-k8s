@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: at-ai-admin-aoe-fe-configmap
+  namespace: advtech
+data:
+  sso.properties: |
+    env=test
+    appid=AIASEADMIN_STAG
+    scope=role email constituentid acsid firstname lastname groups divisions source products offer roles
+    protectedPaths=/originality
+    cancelurl=https://javiastest-admin.acs.org/originality/home
+    continueLabel=Back to AIASE admin
+    default_max_age=30
+    redirecturl=https://javiastest-admin.acs.org/originality/home/redirect
+    returnURL=https://javiastest-admin.acs.org/originality/home
