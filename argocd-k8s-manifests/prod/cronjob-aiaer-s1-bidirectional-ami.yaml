@@ -1,46 +1,46 @@
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: at-aiaer-s1-bidirectional-ami
-  namespace: advtech
-spec:
-  schedule: "* * * * *"
-  startingDeadlineSeconds: 900
-  concurrencyPolicy: Forbid
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 1
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: at-aiaer-s1-bidirectional-ami
-            image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-ami:prod
-            imagePullPolicy: Always
-            env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: test
-            - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
-              value: "am"
-            - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP-INFINITE-EXECUTION
-              value: "true"
-            resources:
-              requests:
-                cpu: 1000m
-                memory: 2048Mi
-              limits:
-                cpu: 1000m
-                memory: 2048Mi
-            volumeMounts:
-              - mountPath: /appl/iapps/config/
-                name: secret-server-configmap
-          volumes:
-            - name: secret-server-configmap
-              configMap:
-                name: secret-server-configmap
-          imagePullSecrets:
-            - name: ghcr-token-github-com
-          restartPolicy: OnFailure
+# apiVersion: batch/v1
+# kind: CronJob
+# metadata:
+#   name: at-aiaer-s1-bidirectional-ami
+#   namespace: advtech
+# spec:
+#   schedule: "* * * * *"
+#   startingDeadlineSeconds: 900
+#   concurrencyPolicy: Forbid
+#   successfulJobsHistoryLimit: 1
+#   failedJobsHistoryLimit: 1
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           containers:
+#           - name: at-aiaer-s1-bidirectional-ami
+#             image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-ami:prod
+#             imagePullPolicy: Always
+#             env:
+#             - name: SPRING_PROFILES_ACTIVE
+#               value: test
+#             - name: S1_BIDIRECTIONAL_PROCESS_JOURNALID
+#               value: "am"
+#             - name: S1_BIDIRECTIONAL_PREPROCESS_SKIP-INFINITE-EXECUTION
+#               value: "true"
+#             resources:
+#               requests:
+#                 cpu: 1000m
+#                 memory: 2048Mi
+#               limits:
+#                 cpu: 1000m
+#                 memory: 2048Mi
+#             volumeMounts:
+#               - mountPath: /appl/iapps/config/
+#                 name: secret-server-configmap
+#           volumes:
+#             - name: secret-server-configmap
+#               configMap:
+#                 name: secret-server-configmap
+#           imagePullSecrets:
+#             - name: ghcr-token-github-com
+#           restartPolicy: OnFailure
 
 
 

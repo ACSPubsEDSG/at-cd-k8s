@@ -1,38 +1,38 @@
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: at-manuscript-editor-distribution-ami
-  namespace: advtech
-spec:
-  schedule: "* * * * *"
-  concurrencyPolicy: Forbid
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 1
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: at-manuscript-editor-distribution-ami
-            image: ghcr.io/acspubsedsg/at-manuscript-editor-distribution-ami:prod
-            imagePullPolicy: Always
-            env:
-              - name: SPRING_PROFILES_ACTIVE
-                value: test
-            resources:
-              requests:
-                cpu: 1000m
-                memory: 2048Mi
-              limits:
-                cpu: 1000m
-                memory: 2048Mi
-            volumeMounts:
-              - mountPath: /appl/iapps/config/
-                name: secret-server-configmap
-          volumes:
-            - name: secret-server-configmap
-              configMap:
-                name: secret-server-configmap
-          imagePullSecrets:
-            - name: ghcr-token-github-com
-          restartPolicy: OnFailure
+# apiVersion: batch/v1
+# kind: CronJob
+# metadata:
+#   name: at-manuscript-editor-distribution-ami
+#   namespace: advtech
+# spec:
+#   schedule: "* * * * *"
+#   concurrencyPolicy: Forbid
+#   successfulJobsHistoryLimit: 1
+#   failedJobsHistoryLimit: 1
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           containers:
+#           - name: at-manuscript-editor-distribution-ami
+#             image: ghcr.io/acspubsedsg/at-manuscript-editor-distribution-ami:prod
+#             imagePullPolicy: Always
+#             env:
+#               - name: SPRING_PROFILES_ACTIVE
+#                 value: test
+#             resources:
+#               requests:
+#                 cpu: 1000m
+#                 memory: 2048Mi
+#               limits:
+#                 cpu: 1000m
+#                 memory: 2048Mi
+#             volumeMounts:
+#               - mountPath: /appl/iapps/config/
+#                 name: secret-server-configmap
+#           volumes:
+#             - name: secret-server-configmap
+#               configMap:
+#                 name: secret-server-configmap
+#           imagePullSecrets:
+#             - name: ghcr-token-github-com
+#           restartPolicy: OnFailure
