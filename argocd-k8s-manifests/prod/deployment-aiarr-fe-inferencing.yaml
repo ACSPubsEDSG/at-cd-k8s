@@ -31,7 +31,7 @@ spec:
               nvidia.com/gpu: 1
             limits:
               cpu: 1500m
-              memory: 32000Mi
+              memory: 64000Mi
               nvidia.com/gpu: 1
           command:
           - /bin/sh
