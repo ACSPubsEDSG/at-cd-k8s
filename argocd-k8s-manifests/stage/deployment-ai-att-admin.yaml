@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: at-ai-att-admin
-        image: ghcr.io/acspubsedsg/at-ai-att-admin:latest
+        image: ghcr.io/acspubsedsg/at-ai-att-admin:stage
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
