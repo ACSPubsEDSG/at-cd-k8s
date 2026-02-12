@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: at-ai-aoe-admin
-        image: ghcr.io/acspubsedsg/at-ai-aoe-admin:latest
+        image: ghcr.io/acspubsedsg/at-ai-aoe-admin:stage
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
