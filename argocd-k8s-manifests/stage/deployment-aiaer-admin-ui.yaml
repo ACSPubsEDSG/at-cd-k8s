@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - name: at-aiaer-admin-ui
-        image: ghcr.io/acspubsedsg/at-aiaer-admin-ui:latest
-        imagePullPolicy: Always
+        image: ghcr.io/acspubsedsg/at-aiaer-admin-ui:v1.0.0
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
