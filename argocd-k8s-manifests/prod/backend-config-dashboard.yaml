@@ -4,7 +4,7 @@ metadata:
   name: at-ai-fe-backendconfig
   namespace: advtech
 spec:
-  timeoutSec: 60
+  timeoutSec: 120
   sessionAffinity:
     affinityCookieTtlSec: 1200
     affinityType: GENERATED_COOKIE
