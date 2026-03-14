@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: at-ai-arr-fe-inferencing
-          image: ghcr.io/acspubsedsg/at-ai-arr-fe-inferencing:prod
+          image: ghcr.io/acspubsedsg/at-ai-arr-fe-inferencing@sha256:fe4ff704ede87e7ae78c2216b4ec2784af06287babe3f471076047418608b394
           imagePullPolicy: Always
           env:
           - name: LD_LIBRARY_PATH
