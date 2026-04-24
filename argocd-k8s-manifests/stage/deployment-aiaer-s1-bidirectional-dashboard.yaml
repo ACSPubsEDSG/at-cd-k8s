@@ -1,33 +1,33 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: at-aiaer-s1-bidirectional-dashboard
-  namespace: advtech
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: at-aiaer-s1-bidirectional-dashboard
-  template:
-    metadata:
-      labels:
-        app: at-aiaer-s1-bidirectional-dashboard
-    spec:
-      containers:
-      - name: at-aiaer-s1-bidirectional-dashboard
-        image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-dashboard:test
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: test
-        resources:
-          requests:
-            cpu: 1000m 
-            memory: 2048Mi
-          limits:
-            cpu: 1500m 
-            memory: 3072Mi
-      imagePullSecrets:
-        - name: ghcr-token-github-com
+﻿#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: at-aiaer-s1-bidirectional-dashboard
+#  namespace: advtech
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: at-aiaer-s1-bidirectional-dashboard
+#  template:
+#    metadata:
+#      labels:
+#        app: at-aiaer-s1-bidirectional-dashboard
+#    spec:
+#      containers:
+#      - name: at-aiaer-s1-bidirectional-dashboard
+#        image: ghcr.io/acspubsedsg/at-aiaer-s1-bidirectional-dashboard:test
+#        imagePullPolicy: Always
+#        ports:
+#        - containerPort: 8080
+#        env:
+#        - name: SPRING_PROFILES_ACTIVE
+#          value: test
+#        resources:
+#          requests:
+#            cpu: 1000m 
+#            memory: 2048Mi
+#          limits:
+#            cpu: 1500m 
+#            memory: 3072Mi
+#      imagePullSecrets:
+#        - name: ghcr-token-github-com

@@ -1,34 +1,34 @@
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: at-ai-aer-fe-inferencing-restart-ami-nano
-  namespace: advtech
-spec:
-  timeZone: "EST"
-  schedule: "30 17 * * 6"
-  concurrencyPolicy: Replace
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 1
-  jobTemplate:
-    spec:
-      backoffLimit: 2
-      activeDeadlineSeconds: 600
-      template:
-        spec:
-          serviceAccountName: restart-deployment
-          restartPolicy: Never
-          containers:
-            - name: kubectl
-              image: bitnami/kubectl
-              command:
-                - bash
-                - -c
-                - >-
-                  kubectl rollout restart deployment/at-ai-aer-nano-fe-inferencing-ae &&
-                  kubectl rollout status deployment/at-ai-aer-nano-fe-inferencing-ae &&
-                  kubectl rollout restart deployment/at-ai-aer-nano-fe-inferencing-ee &&
-                  kubectl rollout status deployment/at-ai-aer-nano-fe-inferencing-ee &&
-                  kubectl rollout restart deployment/at-ai-aer-ami-fe-inferencing-ae &&
-                  kubectl rollout status deployment/at-ai-aer-ami-fe-inferencing-ae &&
-                  kubectl rollout restart deployment/at-ai-aer-ami-fe-inferencing-ee &&
-                  kubectl rollout status deployment/at-ai-aer-ami-fe-inferencing-ee
+﻿#apiVersion: batch/v1
+#kind: CronJob
+#metadata:
+#  name: at-ai-aer-fe-inferencing-restart-ami-nano
+#  namespace: advtech
+#spec:
+#  timeZone: "EST"
+#  schedule: "30 17 * * 6"
+#  concurrencyPolicy: Replace
+#  successfulJobsHistoryLimit: 1
+#  failedJobsHistoryLimit: 1
+#  jobTemplate:
+#    spec:
+#      backoffLimit: 2
+#      activeDeadlineSeconds: 600
+#      template:
+#        spec:
+#          serviceAccountName: restart-deployment
+#          restartPolicy: Never
+#          containers:
+#            - name: kubectl
+#              image: bitnami/kubectl
+#              command:
+#                - bash
+#                - -c
+#                - >-
+#                  kubectl rollout restart deployment/at-ai-aer-nano-fe-inferencing-ae &&
+#                  kubectl rollout status deployment/at-ai-aer-nano-fe-inferencing-ae &&
+#                  kubectl rollout restart deployment/at-ai-aer-nano-fe-inferencing-ee &&
+#                  kubectl rollout status deployment/at-ai-aer-nano-fe-inferencing-ee &&
+#                  kubectl rollout restart deployment/at-ai-aer-ami-fe-inferencing-ae &&
+#                  kubectl rollout status deployment/at-ai-aer-ami-fe-inferencing-ae &&
+#                  kubectl rollout restart deployment/at-ai-aer-ami-fe-inferencing-ee &&
+#                  kubectl rollout status deployment/at-ai-aer-ami-fe-inferencing-ee
