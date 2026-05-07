@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: at-ai-arr-fe-api
-        image: ghcr.io/acspubsedsg/at-ai-arr-fe-api@sha256:f8322df0d7f512e0c6e807ff68d29d984ec416e04b66f7a2e2ba35d0dd32931e
+        image: ghcr.io/acspubsedsg/at-ai-arr-fe-api@sha256:4ab0c636d08bb668ca2b22a29a8beff232f330f72176edf03ce671b1fa7710fe
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
