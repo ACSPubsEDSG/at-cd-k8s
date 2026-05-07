@@ -15,7 +15,7 @@ spec:
         spec:
           containers:
           - name: at-ai-arr-fe-training-reviewer-top-n
-            image: ghcr.io/acspubsedsg/at-ai-arr-fe-training@sha256:2b42e2f59d29b5dc7421789eda29c8c2b0d98bbecd13cdfb021d759291ffe73b
+            image: ghcr.io/acspubsedsg/at-ai-arr-fe-training@sha256:5161fefee0bc36e654da3a32757d192262e86a7b231a0b7904611f7911957b59
             imagePullPolicy: Always
             env:
             - name: LD_LIBRARY_PATH
