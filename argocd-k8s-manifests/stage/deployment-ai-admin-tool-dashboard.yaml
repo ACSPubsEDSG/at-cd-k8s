@@ -14,36 +14,36 @@ spec:
         app: at-ai-admin-tool-dashboard
     spec:
       containers:
-      - name: at-ai-admin-tool-dashboard
-        image: ghcr.io/acspubsedsg/at-ai-admin-tool-dashboard:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: test
-        resources:
-          requests:
-            cpu: 1000m 
-            memory: 2048Mi
-          limits:
-            cpu: 1500m 
-            memory: 3072Mi   
-        livenessProbe:
-          initialDelaySeconds: 30
-          periodSeconds: 5
-          httpGet:
-            path: /Dashboard/HealthMonitor
-            port: 8080
-        readinessProbe:
-          initialDelaySeconds: 30
-          periodSeconds: 5
-          httpGet:
-            path: /Dashboard/HealthMonitor
-            port: 8080
-        volumeMounts:
-        - mountPath: /appl/iapps/dashboard/
-          name: at-ai-admin-tool-dashboard-config-volume
+        - name: at-ai-admin-tool-dashboard
+          image: ghcr.io/acspubsedsg/at-ai-admin-tool-dashboard:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2048Mi
+            limits:
+              cpu: 1500m
+              memory: 3072Mi
+          livenessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            httpGet:
+              path: /Dashboard/HealthMonitor
+              port: 8080
+          readinessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            httpGet:
+              path: /Dashboard/HealthMonitor
+              port: 8080
+          volumeMounts:
+            - mountPath: /appl/iapps/dashboard/
+              name: at-ai-admin-tool-dashboard-config-volume
       hostAliases:
         - hostnames:
             - "ssotest.acs.org"
@@ -53,4 +53,4 @@ spec:
           configMap:
             name: at-ai-admin-tool-dashboard-configmap
       imagePullSecrets:
-          - name: ghcr-token-github-com             
+        - name: ghcr-token-github-com
