@@ -30,8 +30,8 @@ spec:
             cpu: 1500m 
             memory: 3072Mi
         volumeMounts:
-          - mountPath: /appl/iapps/ssoProperties/
-            name: at-ai-admin-aoe-fe-config-volume
+        - mountPath: /appl/iapps/ssoProperties/
+          name: at-ai-admin-aoe-fe-config-volume
       hostAliases:
         - hostnames:
             - "ssotest.acs.org"
