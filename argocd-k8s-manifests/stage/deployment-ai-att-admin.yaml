@@ -14,24 +14,24 @@ spec:
         app: at-ai-att-admin
     spec:
       containers:
-      - name: at-ai-att-admin
-        image: ghcr.io/acspubsedsg/at-ai-att-admin:stage
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: test
-        resources:
-          requests:
-            cpu: 1000m 
-            memory: 2048Mi
-          limits:
-            cpu: 1500m 
-            memory: 3072Mi
-      volumeMounts:
-        - mountPath: /appl/iapps/ssoProperties/
-          name: at-ai-admin-att-fe-config-volume
+        - name: at-ai-att-admin
+          image: ghcr.io/acspubsedsg/at-ai-att-admin:stage
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2048Mi
+            limits:
+              cpu: 1500m
+              memory: 3072Mi
+          volumeMounts:
+            - mountPath: /appl/iapps/ssoProperties/
+              name: at-ai-admin-att-fe-config-volume
       hostAliases:
         - hostnames:
             - "ssotest.acs.org"

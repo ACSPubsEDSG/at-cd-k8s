@@ -14,27 +14,27 @@ spec:
         app: at-rrcc-java-api
     spec:
       containers:
-      - name: at-rrcc-java-api
-        image: ghcr.io/acspubsedsg/at-rrcc-java-api:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: test
-        resources:
-          requests:
-            cpu: 1000m 
-            memory: 2048Mi
-          limits:
-            cpu: 1500m 
-            memory: 3072Mi
-        volumeMounts:
-        - mountPath: /appl/iapps/rrcc/
-          name: rrcc-configmap
+        - name: at-rrcc-java-api
+          image: ghcr.io/acspubsedsg/at-rrcc-java-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2048Mi
+            limits:
+              cpu: 1500m
+              memory: 3072Mi
+          volumeMounts:
+            - mountPath: /appl/iapps/rrcc/
+              name: rrcc-configmap
       volumes:
         - name: rrcc-configmap
           configMap:
             name: rrcc-configmap
       imagePullSecrets:
-        - name: ghcr-token-github-com  
+        - name: ghcr-token-github-com

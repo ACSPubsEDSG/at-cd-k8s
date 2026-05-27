@@ -14,24 +14,24 @@ spec:
         app: at-ai-aoe-admin
     spec:
       containers:
-      - name: at-ai-aoe-admin
-        image: ghcr.io/acspubsedsg/at-ai-aoe-admin:stage
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: test
-        resources:
-          requests:
-            cpu: 1000m 
-            memory: 2048Mi
-          limits:
-            cpu: 1500m 
-            memory: 3072Mi
-        volumeMounts:
-        - mountPath: /appl/iapps/ssoProperties/
-          name: at-ai-admin-aoe-fe-config-volume
+        - name: at-ai-aoe-admin
+          image: ghcr.io/acspubsedsg/at-ai-aoe-admin:stage
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2048Mi
+            limits:
+              cpu: 1500m
+              memory: 3072Mi
+          volumeMounts:
+            - mountPath: /appl/iapps/ssoProperties/
+              name: at-ai-admin-aoe-fe-config-volume
       hostAliases:
         - hostnames:
             - "ssotest.acs.org"
