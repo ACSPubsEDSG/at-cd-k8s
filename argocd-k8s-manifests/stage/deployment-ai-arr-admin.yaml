@@ -29,7 +29,7 @@ spec:
           limits:
             cpu: 1500m 
             memory: 3072Mi
-       volumeMounts:
+      volumeMounts:
         - mountPath: /appl/iapps/ssoProperties/
           name: at-ai-admin-arr-fe-config-volume
       hostAliases:
