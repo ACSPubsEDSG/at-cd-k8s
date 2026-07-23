@@ -24,6 +24,8 @@ spec:
           value: prod
         - name: TZ
           value: EST
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:oracle:thin:@(DESCRIPTION=(FAILOVER=on)(LOAD_BALANCE=no)(ADDRESS=(PROTOCOL=TCP)(HOST=prod-lnx-3403.acs.org)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=mspubs.acs.org)))"
         resources:
           requests:
             cpu: 1000m 
