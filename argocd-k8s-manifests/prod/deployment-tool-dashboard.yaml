@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: at-ai-tool-dashboard
-        image: ghcr.io/acspubsedsg/at-ai-tool-dashboard:production
+        image: ghcr.io/acspubsedsg/at-ai-tool-dashboard@sha256:5611ac93eecf463a8d909b3a38b8fbfa1394538ecd4e096f1544515e36ac4e8d
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
